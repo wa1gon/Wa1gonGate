@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdifTest", "AdifTest\AdifTe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseRepo", "DatabaseRepo\DatabaseRepo.csproj", "{858BFA1A-C079-4AB6-9DEF-7F9D687F6227}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseRepoTest", "DatabaseRepoTest\DatabaseRepoTest.csproj", "{0923288A-A062-4F39-B4FE-5FD4BC2B1AC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlServerRepoTest", "DatabaseRepoTest\SqlServerRepoTest.csproj", "{0923288A-A062-4F39-B4FE-5FD4BC2B1AC5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HamDevLib", "HamDevLib\HamDevLib.csproj", "{47D4BBAB-6B4F-4AE3-A21B-A04A24BEBE2B}"
 EndProject

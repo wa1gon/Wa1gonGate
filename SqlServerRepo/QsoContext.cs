@@ -1,6 +1,6 @@
 ﻿using HamDevLib;
 using Microsoft.EntityFrameworkCore;
-namespace DatabaseRepo.SqlServer
+namespace SqlServerRepo
 {
     public class QsoContext : DbContext
     {

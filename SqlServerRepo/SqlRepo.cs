@@ -1,7 +1,7 @@
 ﻿using HamDevLib;
 
 
-namespace DatabaseRepo.SqlServer
+namespace SqlServerRepo
 {
     public class SqlRepo : IQSORepo
     {

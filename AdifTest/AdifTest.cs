@@ -80,7 +80,7 @@ namespace AdifTest
 
             AdifWriter.WriteAdifToJsonFile(TestJsonFilePath, orignalAdifRecords, header);
             var actualAdifRecordsJ = AdifReader.ReadAdifFromJsonFile(TestJsonFilePath);
-
+            Assert.IsNotNull(actualAdifRecordsJ);
             // compare if something goes wrong.
             //AdifComparer.CompareQSOLists(orignalAdifRecords, actualAdifRecordsJ);
             int counter = 0;

@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using HamDevLib;
+using Microsoft.Extensions.Logging;
+using SqlServerRepo;
 
 namespace Wa1gonLog
 {
@@ -14,6 +16,8 @@ namespace Wa1gonLog
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+
+            builder.Services.AddSingleton<IQSORepo, SqlRepo>();
 
 #if DEBUG
             builder.Logging.AddDebug();
