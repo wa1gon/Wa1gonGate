@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AdifLib;
 using DatabaseRepo.SqlServer;
+using HamDevLib;
 
 string databaseName = "AmateurRadioTest";
 using (QsoContext context = new QsoContext($"Data Source = (localDB)\\MSSQLLocalDB; Initial Catalog = {databaseName}"))
