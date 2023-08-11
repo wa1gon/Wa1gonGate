@@ -9,7 +9,15 @@ namespace Wa1gonLog
         {
             InitializeComponent();
             Repo = repo;
+            //todo: replace with setting manager to get connection string
             Repo.CreateContext("Data Source = (localDB)\\MSSQLLocalDB; Initial Catalog = AmateurRadio");
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            //CollectionView.ItemsSourceProperty = Repo.GetAllQsos();
+
         }
 
     }
