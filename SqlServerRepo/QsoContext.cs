@@ -1,15 +1,13 @@
 ﻿using HamDevLib;
 using Microsoft.EntityFrameworkCore;
-
-
 namespace DatabaseRepo.SqlServer
 {
     public class QsoContext : DbContext
     {
         public DbSet<Qso> Qsos { get; set; }
         public DbSet<QsoDetail> QsoDetail { get; set; }
-        private string connectionString;
-        public QsoContext(string connectionString)
+        private string? connectionString;
+        public QsoContext(string? connectionString)
         {
             this.connectionString = connectionString;
         }
