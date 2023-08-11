@@ -1,4 +1,5 @@
 ﻿using HamDevLib;
+using System.Diagnostics;
 
 namespace Wa1gonLog
 {
@@ -16,8 +17,16 @@ namespace Wa1gonLog
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            //CollectionView.ItemsSourceProperty = Repo.GetAllQsos();
+            collectionView.ItemsSourceProperty = Repo.GetAllQsos();
 
+        }
+        public async void OnAddQsoClicked(object sender, EventArgs e)
+        {
+            Debug.Write("--> add button clicked");
+        }
+        public async void OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Debug.Write("--> selection change");
         }
 
     }
