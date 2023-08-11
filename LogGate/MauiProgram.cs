@@ -1,8 +1,6 @@
-﻿using HamDevLib;
-using Microsoft.Extensions.Logging;
-using SqlServerRepo;
+﻿using Microsoft.Extensions.Logging;
 
-namespace Wa1gonLog
+namespace LogGate
 {
     public static class MauiProgram
     {
@@ -17,11 +15,8 @@ namespace Wa1gonLog
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.Services.AddSingleton<IQSORepo, SqlRepo>();
-            builder.Services.AddSingleton<MainPage>();
-
 #if DEBUG
-            builder.Logging.AddDebug();
+    		builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

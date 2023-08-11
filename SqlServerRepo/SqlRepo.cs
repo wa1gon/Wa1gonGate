@@ -8,11 +8,15 @@ namespace SqlServerRepo
         protected QsoContext? context = null;
         public void CreateContext(string connectionString)
         {
+            if (context is not null)
+                return;
             context = new QsoContext(connectionString);
 
         }
         public void CreateContext()
         {
+            if (context is not null)
+                return;
             context = new QsoContext("Data Source = (localDB)\\MSSQLLocalDB; Initial Catalog = AmateurRadio");
             //context = new QsoContext("Data Source = Spock\\sqlexpress\\B; Initial Catalog = AmateurRadio");
         }
