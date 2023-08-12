@@ -17,7 +17,7 @@ namespace Wa1gonLog
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            collectionView.ItemsSourceProperty = Repo.GetAllQsos();
+            //collectionView.ItemsSourceProperty = Repo.GetAllQsos();
 
         }
         public async void OnAddQsoClicked(object sender, EventArgs e)
