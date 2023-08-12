@@ -23,13 +23,15 @@
                 <Entry x:Name="entryEmail" VerticalOptions="Center">
                     <Entry.Behaviors>
                         <toolkit:MultiValidationBehavior x:Name="EmailValidator">
-                        <toolkit:TextValidationBehavior MinimumLength="1"
-                              Flags="ValidateOnAttaching,ValidateOnValueChanged"
-                              toolkit:MultiValidationBehavior.Error="Email is required."/>
+                            
+                            <toolkit:TextValidationBehavior MinimumLength="1"
+                                  Flags="ValidateOnAttaching,ValidateOnValueChanged"
+                                  toolkit:MultiValidationBehavior.Error="Email is required."/>
 
                             <toolkit:EmailValidationBehavior  
                                 Flags="ValidateOnAttaching,ValidateOnValueChanged"
                                 toolkit:MultiValidationBehavior.Error="Email format is invalid"/>
+                            
                         </toolkit:MultiValidationBehavior>
                     </Entry.Behaviors>                    
                 </Entry>
