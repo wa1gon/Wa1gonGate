@@ -1,5 +1,6 @@
 namespace Contacts.Views;
 using Contacts.Models;
+//using Contact = Contacts.Models.Contact;
 public partial class ContactsPage : ContentPage
 {
     public ContactsPage()
@@ -24,7 +25,10 @@ public partial class ContactsPage : ContentPage
     private async void listContacts_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
         if (listContacts.SelectedItem != null)
-            await Shell.Current.GoToAsync(nameof(EditContactPage));
+        {
+            var id = ((Contact)listContacts.SelectedItem).ContactId;
+            await Shell.Current.GoToAsync($"{nameof(EditContactPage)}?Id={id}");
+        }
         //DisplayAlert("test", "test", "OK");
     }
 
