@@ -3,9 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contacts.Views.ContactsPage"
              Title="Contacts Page">
-    <ListView x:Name="listContacts" 
+    <ListView x:Name="listContacts" ItemSelected="listContacts_ItemSelected"
+              ItemTapped="listContacts_ItemTapped"
               BackgroundColor="Transparent"
-              SeparatorColor="Aqua">
+              SeparatorColor="Silver" RowHeight="65">
+
+        <ListView.ItemTemplate >
+            <DataTemplate>
+                <TextCell Text="{Binding Path=Name}" Detail="{Binding Email}">
+                    
+                </TextCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
         
     </ListView>
 </ContentPage>
