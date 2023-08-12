@@ -3,12 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Contacts.Views.EditContactPage"
              Title="Edit Contact Page">
-    <VerticalStackLayout>
-        <Label x:Name="lblName"
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <VerticalStackLayout Spacing="10" Margin="20,20,20,0">
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout>
+                <Label Text="Name" WidthRequest="60" VerticalOptions="Center"></Label>
+                <Entry VerticalOptions="Center"></Entry>
+            </HorizontalStackLayout>
+        </Frame>
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout>
+                <Label Text="EMail" WidthRequest="60" VerticalOptions="Center"></Label>
+                <Entry VerticalOptions="Center"></Entry>
+            </HorizontalStackLayout>
+        </Frame>
 
-        <Button x:Name="btnCancel" Text="Cancel" Clicked="btnCancel_Clicked"/>
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout>
+                <Label Text="Phone" WidthRequest="60" VerticalOptions="Center"></Label>
+                <Entry VerticalOptions="Center"></Entry>
+            </HorizontalStackLayout>
+        </Frame>
+
+        <Frame Padding="10,2,10,2">
+            <HorizontalStackLayout>
+                <Label Text="Address" WidthRequest="60" VerticalOptions="Center"></Label>
+                <Entry VerticalOptions="Center"></Entry>
+            </HorizontalStackLayout>
+        </Frame>
     </VerticalStackLayout>
 </ContentPage>
