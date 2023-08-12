@@ -12,7 +12,30 @@
         public static List<Contact> GetContacts() => contacts;
         public static Contact GetContactById(int id)
         {
-            return contacts.FirstOrDefault(x => x.ContactId == id);
+            var contact = contacts.FirstOrDefault(x => x.ContactId == id);
+            if (contact is null) return null;
+
+            return new Contact
+            {
+                ContactId = contact.ContactId,
+                Name = contact.Name,
+                Email = contact.Email,
+                Address = contact.Address,
+                Phone = contact.Phone
+            };
+        }
+        public static void UpdateContact(int id, Contact contact)
+        {
+            if (id != contact.ContactId) return;
+
+            var contactToUpdate = contacts.FirstOrDefault(x => x.ContactId == id);
+            if (contactToUpdate is not null)
+            {
+                contactToUpdate.Name = contact.Name;
+                contactToUpdate.Email = contact.Email;
+                contactToUpdate.Address = contact.Address;
+                contactToUpdate.Phone = contact.Phone;
+            }
         }
 
     }
