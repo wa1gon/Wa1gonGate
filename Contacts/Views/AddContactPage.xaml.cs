@@ -11,4 +11,14 @@ public partial class AddContactPage : ContentPage
     {
         Shell.Current.GoToAsync("..");
     }
+
+    private void contactControl_OnSave(object sender, EventArgs e)
+    {
+
+    }
+
+    private void contactControl_OnError(object sender, string e)
+    {
+
+    }
 }
