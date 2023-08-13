@@ -37,6 +37,12 @@
                 contactToUpdate.Phone = contact.Phone;
             }
         }
+        public static void AddContact(Contact contact)
+        {
+            var maxId = contacts.Max(x => x.ContactId);
+            contact.ContactId = maxId + 1;
+            contacts.Add(contact);
+        }
 
     }
 
