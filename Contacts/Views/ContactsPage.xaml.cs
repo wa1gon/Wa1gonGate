@@ -14,6 +14,7 @@ public partial class ContactsPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        Search.Text = string.Empty;
         LoadContacts();
     }
 
@@ -56,4 +57,13 @@ public partial class ContactsPage : ContentPage
         var contacts = new ObservableCollection<Contact>(ContactRepository.GetContacts());
         listContacts.ItemsSource = contacts;
     }
+
+    private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        var rc = ContactRepository.SearchContacts(((SearchBar)sender).Text);
+        var orc = new ObservableCollection<Contact>(rc);
+        listContacts.ItemsSource = orc;
+    }
+
+
 }
