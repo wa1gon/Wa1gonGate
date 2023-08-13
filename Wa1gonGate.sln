@@ -27,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoApp", "TodoApp\TodoApp.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogGate", "LogGate\LogGate.csproj", "{1BAD8E13-80BE-4DC4-800A-BD1B4577AF65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamDevLib.Test", "HamDevLib.Test\HamDevLib.Test.csproj", "{99BB2AB0-2826-47DE-B39D-696E56DE3425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HamDevLib.Test", "HamDevLib.Test\HamDevLib.Test.csproj", "{99BB2AB0-2826-47DE-B39D-696E56DE3425}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contacts", "Contacts\Contacts.csproj", "{D637EB88-258D-4886-AE0E-B6D207BEAD4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,6 +91,12 @@ Global
 		{99BB2AB0-2826-47DE-B39D-696E56DE3425}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99BB2AB0-2826-47DE-B39D-696E56DE3425}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99BB2AB0-2826-47DE-B39D-696E56DE3425}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D637EB88-258D-4886-AE0E-B6D207BEAD4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D637EB88-258D-4886-AE0E-B6D207BEAD4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D637EB88-258D-4886-AE0E-B6D207BEAD4B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{D637EB88-258D-4886-AE0E-B6D207BEAD4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D637EB88-258D-4886-AE0E-B6D207BEAD4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D637EB88-258D-4886-AE0E-B6D207BEAD4B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
