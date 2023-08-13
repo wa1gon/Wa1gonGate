@@ -9,5 +9,12 @@ namespace LogGate.ViewModel
     {
         [ObservableProperty]
         Qso qso;
+        [ObservableProperty]
+        string text;
+
+        void Add()
+        {
+            text = string.Empty;
+        }
     }
 }
