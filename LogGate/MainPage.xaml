@@ -1,43 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:viewmodel="clr-namespace:LogGate.ViewModel"
-             x:DataType="viewmodel:MainViewModel"
-             x:Class="LogGate.MainPage">
+<ContentPage
+    x:Class="LogGate.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LogGate.ViewModel"
+    xmlns:viewmodel="clr-namespace:LogGate.ViewModel"
+    x:DataType="viewmodel:MainViewModel">
+
+    <ContentPage.BindingContext>
+        <local:QsoViewModel />
+    </ContentPage.BindingContext>
 
     <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+        <Grid
+            Padding="5"
+            ColumnDefinitions="*"
+            RowDefinitions="50,*,50">
+            <SearchBar
+                x:Name="Search"
+                Grid.Row="0"
+                Grid.Column="0"
+                Placeholder="Search Contact" />
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+            <FlexLayout Direction="Row" Wrap="Wrap" Grid.Row="1" >
+                <VerticalStackLayout>
+                    <Label Text="Call"  Padding="10,0,0,0"/>
+                    <Entry Placeholder="Call Sign" Text="{Binding Call}" />
+                </VerticalStackLayout>
 
-            <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+                <VerticalStackLayout>
+                    <Label Text="Name" Padding="10,0,0,0" MinimumWidthRequest="180"/>
+                    <Entry Placeholder="Name" Text="{Binding Name}" />
+                </VerticalStackLayout>
 
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+                <VerticalStackLayout>
+                    <Label Text="Mode"  Padding="10,0,0,0"/>
+                    <Entry Placeholder="Mode" Text="{Binding Mode}" />
+                </VerticalStackLayout>
+                <VerticalStackLayout>
+                    <Label Text="Select Date and Time:"  Padding="10,0,0,0"/>
+                    <HorizontalStackLayout>
+                        <DatePicker x:Name="datePicker" Date="{Binding QsoDateOnly}" />
+                        <TimePicker x:Name="timePicker" Time="{Binding QsoTimeOnly}" />
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+            </FlexLayout>
 
             <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
+                x:Name="btnAdd"
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Add Contact" />
 
-        </VerticalStackLayout>
+        </Grid>
     </ScrollView>
 
 </ContentPage>

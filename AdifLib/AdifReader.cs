@@ -40,9 +40,9 @@ namespace AdifLib
 
 
 
-                    if (record.TryGetValue("TIME_ON", out string? timeOnValue) && DateTime.TryParseExact(timeOnValue, "HHmmss", null, System.Globalization.DateTimeStyles.None, out DateTime timeOn))
+                    if (record.TryGetValue("NAME", out string? name))
                     {
-                        qso.TimeOn = timeOn;
+                        qso.Name = name;
                     }
 
                     if (record.TryGetValue("MODE", out string? mode))
@@ -61,7 +61,7 @@ namespace AdifLib
                         // Skip the known properties we have already processed (QSO_DATE, CALL, TIME_ON, and MODE)
                         if (string.Equals(field.Key, "QSO_DATE", StringComparison.OrdinalIgnoreCase) ||
                             string.Equals(field.Key, "CALL", StringComparison.OrdinalIgnoreCase) ||
-                            string.Equals(field.Key, "TIME_ON", StringComparison.OrdinalIgnoreCase) ||
+                            string.Equals(field.Key, "name", StringComparison.OrdinalIgnoreCase) ||
                             string.Equals(field.Key, "Id", StringComparison.OrdinalIgnoreCase) ||
                             string.Equals(field.Key, "MODE", StringComparison.OrdinalIgnoreCase))
                         {
@@ -163,13 +163,13 @@ namespace AdifLib
                                                 }
                                                 currentQso.Call = value;
                                             }
-                                            else if (tag.Equals("TIME_ON", StringComparison.OrdinalIgnoreCase))
+                                            else if (tag.Equals("Name", StringComparison.OrdinalIgnoreCase))
                                             {
                                                 if (currentQso == null)
                                                 {
                                                     currentQso = new Qso();
                                                 }
-                                                currentQso.TimeOn = DateTime.ParseExact(value, "HHmmss", null);
+                                                currentQso.Name = value;
                                             }
                                             else if (tag.Equals("MODE", StringComparison.OrdinalIgnoreCase))
                                             {
