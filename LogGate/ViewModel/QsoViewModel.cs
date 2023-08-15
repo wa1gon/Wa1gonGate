@@ -1,34 +1,40 @@
 ﻿namespace LogGate.ViewModel
 {
-    [INotifyPropertyChanged]
-    public partial class QsoViewModel
+
+    public partial class QsoViewModel : ObservableObject
     {
         [ObservableProperty]
-        private string call = string.Empty;
+        public string call = string.Empty;
 
         [ObservableProperty]
-        DateTime qsoDateOnly;
+        public DateTime qsoDateOnly;
 
         [ObservableProperty]
-        DateTime qsoTimeOnly;
+        public DateTime qsoTimeOnly;
 
 
         [ObservableProperty]
-        private DateTime timeOn;
-        [ObservableProperty]
-        private string mode = string.Empty;
+        private string name;
 
         [ObservableProperty]
-        private ICollection<QsoDetail> qsoDetails = new List<QsoDetail>();
-        private DateTime _qsoDate;
+        public string mode = string.Empty;
 
-        [RelayCommand]
-        void Add()
+        [ObservableProperty]
+        public ICollection<QsoDetail> qsoDetails = new List<QsoDetail>();
+
+
+        [RelayCommand(CanExecute = nameof(CanAdd))]
+        public void Add()
         {
             //if (Text.IsNullOrEmpty())
             //    return;
             //items.Add(Text);
             //Text = string.Empty;
+        }
+
+        private bool CanAdd()
+        {
+            return true;
         }
     }
 }
