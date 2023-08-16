@@ -33,11 +33,14 @@ namespace AdifLib
                             qso.Id = Guid.NewGuid().ToString();
 
                         }
-                        writer.WriteLine($"<ID:{qso.Id.Length}>{qso.Id}");
-                        writer.WriteLine($"<QSO_DATE:{qso.QsoDate.ToString("yyyyMMdd").Length}>{qso.QsoDate.ToString("yyyyMMdd")}");
-                        writer.WriteLine($"<CALL:{qso.Call.Length}>{qso.Call}");
-                        writer.WriteLine($"<NAME:{qso.Name.Length}>{qso.Name}");
-                        writer.WriteLine($"<MODE:{qso.Mode.Length}>{qso.Mode}");
+                        writer.WriteLine($"<id:{qso.Id.Length}>{qso.Id}");
+                        writer.WriteLine($"<qso_date:{qso.QsoDate.ToString("yyyyMMdd").Length}>{qso.QsoDate.ToString("yyyyMMdd")}");
+
+                        writer.WriteLine($"<call:{qso.Call.Length}>{qso.Call}");
+                        writer.WriteLine($"<name:{qso.Name.Length}>{qso.Name}");
+                        writer.WriteLine($"<mode:{qso.Mode.Length}>{qso.Mode}");
+
+                        WriteOutAdifTagsIfNeeded(writer, qso);
 
                         foreach (var field in qso.QsoDetails)
                         {
@@ -54,6 +57,31 @@ namespace AdifLib
             catch (Exception ex)
             {
                 Console.WriteLine("Error writing ADIF file: " + ex.Message);
+            }
+
+            static void WriteOutAdifTagsIfNeeded(StreamWriter writer, Qso qso)
+            {
+                if (qso.RstRcvd.Length > 0)
+                    writer.WriteLine($"<rst_rcvd:{qso.RstRcvd.Length}>{qso.RstRcvd}");
+
+                if (qso.RstSent.Length > 0)
+                    writer.WriteLine($"<rst_sent:{qso.RstSent.Length}>{qso.RstSent}");
+
+                if (qso.QSLRcvd.Length > 0)
+                    writer.WriteLine($"<qsl_rcvd:{qso.QSLRcvd.Length}>{qso.QSLRcvd}");
+
+                if (qso.QSLSent.Length > 0)
+                    writer.WriteLine($"<qsl_sent:{qso.QSLSent.Length}>{qso.QSLSent}");
+
+                if (qso.Freq > 0)
+                    writer.WriteLine($"<freq:{qso.Freq.ToString().Length}>{qso.Freq.ToString()}");
+                if (qso.FreqRx > 0)
+                    writer.WriteLine($"<freq_rx:{qso.FreqRx.ToString().Length}>{qso.FreqRx.ToString()}");
+
+                if (qso.State.Length > 0)
+                    writer.WriteLine($"<state:{qso.State.Length}>{qso.State}");
+                if (qso.County.Length > 0)
+                    writer.WriteLine($"<county:{qso.County.Length}>{qso.County}");
             }
         }
 
@@ -86,8 +114,15 @@ namespace AdifLib
                     {
                         { "CALL", qso.Call },
                         { "QSO_DATE", qso.QsoDate.ToString("yyyyMMdd") },
-                        { "TIME_ON", qso.Name },
-                        { "MODE", qso.Mode }
+
+                        { "RST_RCVD", qso.RstRcvd },
+                        { "RST_SENT", qso.RstSent },
+                        { "QSL_SENT", qso.QSLSent },
+                        { "QSL_RCVD", qso.QSLRcvd },
+                        { "FREQ", qso.Freq.ToString() },
+                        { "FREQ_RX", qso.FreqRx.ToString() },
+                        { "STATE", qso.State },
+                        { "COUNTY", qso.County }
                     };
                     if (qso.Id.IsNullOrEmpty())
                     {

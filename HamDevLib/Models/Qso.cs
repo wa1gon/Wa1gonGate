@@ -10,6 +10,14 @@ public class Qso
     public string Call { get; set; } = string.Empty;
     public string Mode { get; set; } = string.Empty;
     public string Name { get; set; } = string.Empty;
+    public string RstSent { get; set; } = string.Empty;
+    public string RstRcvd { get; set; } = string.Empty;
+    public string QSLSent { get; set; } = string.Empty;
+    public string QSLRcvd { get; set; } = string.Empty;
+    public decimal Freq { get; set; } = decimal.Zero;
+    public decimal FreqRx { get; set; } = decimal.Zero;
+    public string State { get; set; } = string.Empty;
+    public string County { get; set; } = string.Empty;
 
 
     public virtual ICollection<QsoDetail> QsoDetails { get; set; } = new List<QsoDetail>();
