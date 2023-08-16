@@ -25,11 +25,12 @@ namespace AdifLib
 
                     if (record.TryGetValue("CALL", out string? call))
                     {
-                        qso.Call = call;
+
                         if (call.IsNullOrEmpty())
                         {
                             continue;
                         }
+                        qso.Call = call;
                     }
 
                     if (record.TryGetValue("QSO_DATE", out string? qsoDateValue) &&
@@ -38,31 +39,51 @@ namespace AdifLib
                         qso.QsoDate = qsoDate;
                     }
 
-
-
                     if (record.TryGetValue("NAME", out string? name))
-                    {
                         qso.Name = name;
-                    }
 
                     if (record.TryGetValue("MODE", out string? mode))
-                    {
                         qso.Mode = mode;
-                    }
 
-                    if (record.TryGetValue("Id", out string? id))
-                    {
+                    if (record.TryGetValue("ID", out string? id))
                         qso.Id = id;
-                    }
 
+                    if (record.TryGetValue("RST_SENT", out string? rstSent))
+                        qso.RstSent = rstSent;
+
+                    if (record.TryGetValue("RST_RCVD", out string? rstRcvd))
+                        qso.QSLRcvd = rstRcvd;
+
+                    if (record.TryGetValue("FREQ", out string? freq))
+                        qso.Freq = Decimal.Parse(freq);
+
+                    if (record.TryGetValue("FREQ_RX", out string? freqrx))
+                        qso.FreqRx = Decimal.Parse(freqrx);
+
+                    if (record.TryGetValue("STATE", out string? state))
+                        qso.State = state;
+
+                    if (record.TryGetValue("COUNTY", out string? county))
+                        qso.County = county;
 
                     foreach (var field in record)
                     {
                         // Skip the known properties we have already processed (QSO_DATE, CALL, TIME_ON, and MODE)
                         if (string.Equals(field.Key, "QSO_DATE", StringComparison.OrdinalIgnoreCase) ||
                             string.Equals(field.Key, "CALL", StringComparison.OrdinalIgnoreCase) ||
-                            string.Equals(field.Key, "name", StringComparison.OrdinalIgnoreCase) ||
-                            string.Equals(field.Key, "Id", StringComparison.OrdinalIgnoreCase) ||
+                            string.Equals(field.Key, "NAME", StringComparison.OrdinalIgnoreCase) ||
+                            string.Equals(field.Key, "ID", StringComparison.OrdinalIgnoreCase) ||
+
+                            string.Equals(field.Key, "rst_sent", StringComparison.OrdinalIgnoreCase) ||
+                            string.Equals(field.Key, "rst_rcvd", StringComparison.OrdinalIgnoreCase) ||
+                            string.Equals(field.Key, "QSL_sent", StringComparison.OrdinalIgnoreCase) ||
+                            string.Equals(field.Key, "rst_rcvd", StringComparison.OrdinalIgnoreCase) ||
+                            string.Equals(field.Key, "freq", StringComparison.OrdinalIgnoreCase) ||
+                            string.Equals(field.Key, "freq_rx", StringComparison.OrdinalIgnoreCase) ||
+                            string.Equals(field.Key, "State", StringComparison.OrdinalIgnoreCase) ||
+                            string.Equals(field.Key, "county", StringComparison.OrdinalIgnoreCase) ||
+
+
                             string.Equals(field.Key, "MODE", StringComparison.OrdinalIgnoreCase))
                         {
                             continue;
@@ -96,7 +117,7 @@ namespace AdifLib
                 {
                     string? line;
                     bool isHeader = true;
-                    Qso? currentQso = null;
+                    Qso currentQso = new();
 
 
                     while ((line = reader?.ReadLine()) != null)
@@ -113,10 +134,11 @@ namespace AdifLib
                             if (currentQso != null)
                             {
                                 if (currentQso.Call.IsNullOrEmpty() == false)
+                                {
                                     qsoList.Add(currentQso);
-                                currentQso = null;
+                                    currentQso = new Qso();
+                                }
                             }
-                            currentQso = null;
                             continue;
                         }
 
@@ -138,59 +160,72 @@ namespace AdifLib
                                 {
                                     int length = int.Parse(line.Substring(lengthStartIndex, lengthEndIndex - lengthStartIndex));
                                     int valueStartIndex = lengthEndIndex + 1;
+
                                     if (line.Length >= valueStartIndex + length)
                                     {
                                         string value = line.Substring(valueStartIndex, length);
+
+
                                         if (isHeader)
                                         {
                                             header[tag] = value;
                                         }
                                         else
                                         {
+                                            if (currentQso is null) continue;
+
                                             if (tag.Equals("QSO_DATE", StringComparison.OrdinalIgnoreCase))
-                                            {
-                                                if (currentQso == null)
-                                                {
-                                                    currentQso = new Qso();
-                                                }
                                                 currentQso.QsoDate = DateTime.ParseExact(value, "yyyyMMdd", null);
-                                            }
+
                                             else if (tag.Equals("CALL", StringComparison.OrdinalIgnoreCase))
-                                            {
-                                                if (currentQso == null)
-                                                {
-                                                    currentQso = new Qso();
-                                                }
                                                 currentQso.Call = value;
-                                            }
+
                                             else if (tag.Equals("Name", StringComparison.OrdinalIgnoreCase))
-                                            {
-                                                if (currentQso == null)
-                                                {
-                                                    currentQso = new Qso();
-                                                }
                                                 currentQso.Name = value;
-                                            }
+
                                             else if (tag.Equals("MODE", StringComparison.OrdinalIgnoreCase))
+                                                currentQso.Mode = value;
+
+                                            else if (tag.Equals("Rst_Sent", StringComparison.OrdinalIgnoreCase))
+                                                currentQso.RstSent = value;
+
+                                            else if (tag.Equals("Rst_Rcvd", StringComparison.OrdinalIgnoreCase))
+
+                                                currentQso.RstRcvd = value;
+
+                                            else if (tag.Equals("QSL_Sent", StringComparison.OrdinalIgnoreCase))
+
+                                                currentQso.QSLSent = value;
+
+                                            else if (tag.Equals("QSL_Rcvd", StringComparison.OrdinalIgnoreCase))
+
+                                                currentQso.QSLRcvd = value;
+
+                                            else if (tag.Equals("Freq", StringComparison.OrdinalIgnoreCase))
+
+                                                currentQso.Freq = decimal.Parse(value);
+
+                                            else if (tag.Equals("Freq_Rx", StringComparison.OrdinalIgnoreCase))
+
+                                                currentQso.FreqRx = decimal.Parse(value);
+
+
+                                            else if (tag.Equals("State", StringComparison.OrdinalIgnoreCase))
+
+                                                currentQso.State = value;
+
+                                            else if (tag.Equals("County", StringComparison.OrdinalIgnoreCase))
                                             {
                                                 if (currentQso == null)
                                                 {
                                                     currentQso = new Qso();
                                                 }
-                                                currentQso.Mode = value;
+                                                currentQso.County = value;
                                             }
                                             else
                                             {
-                                                if (currentQso == null)
-                                                {
-                                                    // Ignore fields outside QSO records
-                                                }
-                                                else
-                                                {
-
-                                                    //currentQso.QsoDetails[tag] = value;
-                                                    currentQso.QsoDetails.Add(new QsoDetail() { Name = tag, Value = value });
-                                                }
+                                                //currentQso.QsoDetails[tag] = value;
+                                                currentQso.QsoDetails.Add(new QsoDetail() { Name = tag, Value = value });
                                             }
                                         }
 
