@@ -32,7 +32,7 @@
             //Text = string.Empty;
         }
 
-        private bool CanAdd()
+        public bool CanAdd()
         {
             return true;
         }

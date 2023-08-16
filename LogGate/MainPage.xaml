@@ -57,6 +57,7 @@
             <Button
                 x:Name="btnAdd"
                 Command="{x:Binding AddCommand}"
+                IsEnabled="{Binding }"
                 Grid.Row="2"
                 Grid.Column="0"
                 Text="Add QSO" />
