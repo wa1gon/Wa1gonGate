@@ -36,7 +36,7 @@ namespace AdifLib
                         writer.WriteLine($"<ID:{qso.Id.Length}>{qso.Id}");
                         writer.WriteLine($"<QSO_DATE:{qso.QsoDate.ToString("yyyyMMdd").Length}>{qso.QsoDate.ToString("yyyyMMdd")}");
                         writer.WriteLine($"<CALL:{qso.Call.Length}>{qso.Call}");
-                        writer.WriteLine($"<TIME_ON:{qso.TimeOn.ToString("HHmmss").Length}>{qso.TimeOn.ToString("HHmmss")}");
+                        writer.WriteLine($"<NAME:{qso.Name.Length}>{qso.Name}");
                         writer.WriteLine($"<MODE:{qso.Mode.Length}>{qso.Mode}");
 
                         foreach (var field in qso.QsoDetails)
@@ -86,7 +86,7 @@ namespace AdifLib
                     {
                         { "CALL", qso.Call },
                         { "QSO_DATE", qso.QsoDate.ToString("yyyyMMdd") },
-                        { "TIME_ON", qso.TimeOn.ToString("HHmmss") },
+                        { "TIME_ON", qso.Name },
                         { "MODE", qso.Mode }
                     };
                     if (qso.Id.IsNullOrEmpty())
@@ -148,7 +148,7 @@ namespace AdifLib
                     {
                         { "QSO_DATE", qso.QsoDate.ToString("yyyyMMdd") },
                         { "CALL", qso.Call },
-                        { "TIME_ON", qso.TimeOn.ToString("HHmmss") },
+                        { "TIME_ON", qso.Name },
                         { "MODE", qso.Mode }
                     };
                     if (qso.Id.IsNullOrEmpty())

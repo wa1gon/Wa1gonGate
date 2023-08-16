@@ -8,18 +8,19 @@ public class Qso
     public string Id { get; set; } = string.Empty;
     public DateTime QsoDate { get; set; }
     public string Call { get; set; } = string.Empty;
-    public DateTime TimeOn { get; set; }
     public string Mode { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
+
 
     public virtual ICollection<QsoDetail> QsoDetails { get; set; } = new List<QsoDetail>();
     public override string ToString()
     {
-        return $"{Call}: {QsoDate} - {TimeOn}  {Mode}";
+        return $"{Call}: {QsoDate} - {Name}  {Mode}";
     }
     public string GetSHA256Hash()
     {
         // Concatenate the properties into a single string representation
-        string dataToHash = $"{QsoDate}:{Call}:{TimeOn}:{Mode}";
+        string dataToHash = $"{QsoDate}:{Call}:{Name}:{Mode}";
 
         //Append the dictionary data in a consistent order
         foreach (var entry in QsoDetails.OrderBy(entry => entry.Name))

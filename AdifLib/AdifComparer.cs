@@ -29,7 +29,8 @@ namespace AdifLib
 
         private static bool AreQSOSame(Qso qso1, Qso qso2)
         {
-            if (qso1.QsoDate != qso2.QsoDate || qso1.Call != qso2.Call || qso1.TimeOn != qso2.TimeOn || qso1.Mode != qso2.Mode)
+            if (qso1.QsoDate != qso2.QsoDate || qso1.Call != qso2.Call ||
+                qso1.Name != qso2.Name || qso1.Mode != qso2.Mode)
             {
                 return false;
             }
