@@ -1,5 +1,5 @@
 using AdifLib;
-using HamDevLib;
+using HamDotNetToolkit;
 
 namespace AdifTest
 {

@@ -1,4 +1,4 @@
-﻿namespace HamDevLib;
+﻿namespace HamDotNetToolkit;
 
 
 

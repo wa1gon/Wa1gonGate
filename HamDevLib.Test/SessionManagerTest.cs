@@ -1,7 +1,7 @@
-namespace HamDevLib.Test;
+namespace HamDotNetToolkit.Test;
+using HamDotNetToolkit;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
-
 
 [TestClass]
 public class SettingManagerTests

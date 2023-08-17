@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace HamDevLib.Configuration
+namespace HamDotNetToolkit.Configuration
 {
     public class GetConfiguationItem
     {
