@@ -1,8 +1,8 @@
 using System.Net.Sockets;
 using System.Text;
-using static HamDevLib.IRigControl;
+using static HamDotNetToolkit.IRigControl;
 
-namespace HamDevLib
+namespace HamDotNetToolkit
 {
     public class HamLibClient : IRigControl
     {

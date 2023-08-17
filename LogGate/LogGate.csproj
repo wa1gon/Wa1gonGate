@@ -60,7 +60,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\HamDevLib\HamDevLib.csproj" />
+	  <ProjectReference Include="..\HamDotNetToolkit\HamDotNetToolkit.csproj" />
 	</ItemGroup>
 
 </Project>

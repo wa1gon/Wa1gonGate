@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Formatting = Newtonsoft.Json.Formatting;
-
+namespace HamDotNetToolkit;
 public class SettingManager
 {
     private readonly string _fileName;

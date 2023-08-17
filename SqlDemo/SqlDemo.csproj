@@ -22,7 +22,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AdifLib\AdifLib.csproj" />
-    <ProjectReference Include="..\HamDevLib\HamDevLib.csproj" />
     <ProjectReference Include="..\SqlServerRepo\SqlServerRepo.csproj" />
   </ItemGroup>
 
