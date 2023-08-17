@@ -1,4 +1,4 @@
-﻿namespace HamDevLib.Test
+﻿namespace HamDotNetToolkit.Test
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 

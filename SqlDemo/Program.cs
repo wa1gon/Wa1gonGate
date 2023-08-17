@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using AdifLib;
 
-using HamDevLib;
+using HamDotNetToolkit;
 using SqlServerRepo;
 
 string databaseName = "AmateurRadioTest";

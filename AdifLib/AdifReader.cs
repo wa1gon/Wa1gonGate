@@ -1,4 +1,4 @@
-﻿using HamDevLib;
+﻿using HamDotNetToolkit;
 using Newtonsoft.Json;
 
 namespace AdifLib

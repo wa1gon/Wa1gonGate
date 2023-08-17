@@ -1,6 +1,6 @@
 ﻿
 
-namespace HamDevLib;
+namespace HamDotNetToolkit;
 
 public static class CommonExtMethods
 {
