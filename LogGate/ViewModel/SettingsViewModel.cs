@@ -33,6 +33,5 @@ public partial class SettingsViewModel : ObservableObject
     public void Close()
     {
         Shell.Current.GoToAsync("..");
-
     }
 }
