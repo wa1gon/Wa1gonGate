@@ -28,6 +28,7 @@ namespace LogGate.ViewModel
         [RelayCommand]
         public void Add()
         {
+
             //if (Text.IsNullOrEmpty())
             //    return;
             //items.Add(Text);

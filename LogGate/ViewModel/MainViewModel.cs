@@ -1,7 +1,4 @@
-﻿
-using LogGate.View;
-
-namespace LogGate.ViewModel
+﻿namespace LogGate.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {
@@ -40,16 +37,6 @@ namespace LogGate.ViewModel
         public MainViewModel()
         {
             items = new ObservableCollection<string>();
-        }
-        [RelayCommand]
-        public void Settings()
-        {
-            Shell.Current.GoToAsync(nameof(SettingsPage));
-        }
-        [RelayCommand]
-        public void Add()
-        {
-            Shell.Current.GoToAsync(nameof(SettingsPage));
         }
     }
 }

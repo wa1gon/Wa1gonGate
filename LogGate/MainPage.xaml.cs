@@ -15,9 +15,5 @@ public partial class MainPage : ContentPage
 
     }
 
-    private void btnAdd_Clicked(object sender, EventArgs e)
-    {
-        mainPageVM.Add();
-    }
 }
 
