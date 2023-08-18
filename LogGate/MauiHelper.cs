@@ -4,12 +4,12 @@
     {
         public static string GetSettingsFilePath(string fileName)
         {
-            //string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\LogGate";
-            string appDataPath = FileSystem.Current.AppDataDirectory;
+            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            //string appDataPath = FileSystem.Current.AppDataDirectory;
             appDataPath = Path.Combine(appDataPath, "LogGate");
 
             var dirInfo = Directory.CreateDirectory(appDataPath);
-            appDataPath = Path.Combine(appDataPath, "LogGate.json");
+            appDataPath = Path.Combine(appDataPath, fileName);
             return appDataPath;
 
         }

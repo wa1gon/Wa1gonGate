@@ -11,7 +11,7 @@ namespace LogGate.ViewModel
 
             // testing
             settingManagerVM.SetSetting("call", "WA1GON");
-            settingManagerVM.SaveSettings("settings.json");
+            settingManagerVM.SaveSettings("logGate.json");
         }
         ObservableCollection<string> items;
 
@@ -42,8 +42,8 @@ namespace LogGate.ViewModel
         [RelayCommand]
         void Add()
         {
-            settingManagerVM.SetSetting("call", "WA1GON");
-            settingManagerVM.SaveSettings("settings.json");
+            settingManagerVM.SetSetting(SettingManager.Call, "WA1GON");
+            settingManagerVM.SaveSettings("LogGateSettings.json");
             //if (Text.IsNullOrEmpty())
             //    return;
             //items.Add(Text);
