@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using LogGate.ViewModel;
 using Microsoft.Extensions.Logging;
 
 namespace LogGate;
@@ -16,6 +17,11 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
         builder.UseMauiApp<App>().UseMauiCommunityToolkit();
+
+        builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<SettingManager>();
+        builder.Services.AddTransient<MainViewModel>();
+        //builder.Services.AddTransient<QsoViewModel>();
 
 #if DEBUG
         builder.Logging.AddDebug();
