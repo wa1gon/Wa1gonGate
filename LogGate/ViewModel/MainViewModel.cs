@@ -51,6 +51,5 @@ namespace LogGate.ViewModel
         {
             Shell.Current.GoToAsync(nameof(SettingsPage));
         }
-
     }
 }
