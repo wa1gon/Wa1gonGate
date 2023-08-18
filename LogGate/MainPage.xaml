@@ -14,16 +14,18 @@
     <ScrollView>
         <Grid
             Padding="5"
-            ColumnDefinitions="*"
-            RowDefinitions="50,*,50">
+            ColumnDefinitions="*,*"
+            RowDefinitions="50,*,50,50">
             <SearchBar
                 x:Name="Search"
                 Grid.Row="0"
+                Grid.ColumnSpan="2"
                 Grid.Column="0"
                 Placeholder="Search Contact" />
 
             <FlexLayout
                 Grid.Row="1"
+                Grid.ColumnSpan="2"
                 Direction="Row"
                 Wrap="Wrap">
                 <VerticalStackLayout>
@@ -44,11 +46,16 @@
                     <Entry Placeholder="Mode" Text="{Binding Mode}" />
                 </VerticalStackLayout>
                 <VerticalStackLayout>
-                    <Label Padding="10,0,0,0" Text="Select Date and Time:" />
-                    <HorizontalStackLayout>
-                        <DatePicker x:Name="datePicker" Date="{Binding QsoDateOnly}" />
-                        <TimePicker x:Name="timePicker" Time="{Binding QsoTimeOnly}" />
-                    </HorizontalStackLayout>
+
+                            <Label Padding="10,0,0,0" Text="Select Date and Time:" />
+                            <HorizontalStackLayout>
+
+                                <DatePicker x:Name="datePicker" Date="{Binding QsoDateOnly}" />
+                                <TimePicker x:Name="timePicker" Time="{Binding QsoTimeOnly}" />
+
+
+                            </HorizontalStackLayout>
+
                 </VerticalStackLayout>
 
             </FlexLayout>
@@ -58,8 +65,17 @@
                 x:Name="btnAdd"
                 Command="{x:Binding AddCommand}"
                 Grid.Row="2"
+                Margin="5"
                 Grid.Column="0"
                 Text="Add QSO" />
+
+            <Button
+                x:Name="btnSettings"
+                Margin="5"
+                Command="{x:Binding SettingsCommand}"
+                Grid.Row="2"
+                Grid.Column="1"
+                Text="Settings" />
 
         </Grid>
     </ScrollView>

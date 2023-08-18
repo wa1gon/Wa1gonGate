@@ -42,6 +42,11 @@ namespace LogGate.ViewModel
             items = new ObservableCollection<string>();
         }
         [RelayCommand]
+        public void Settings()
+        {
+            Shell.Current.GoToAsync(nameof(SettingsPage));
+        }
+        [RelayCommand]
         public void Add()
         {
             Shell.Current.GoToAsync(nameof(SettingsPage));

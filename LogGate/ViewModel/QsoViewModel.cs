@@ -1,4 +1,6 @@
-﻿namespace LogGate.ViewModel
+﻿using LogGate.View;
+
+namespace LogGate.ViewModel
 {
 
     public partial class QsoViewModel : ObservableObject
@@ -23,7 +25,7 @@
         public ICollection<QsoDetail> qsoDetails = new List<QsoDetail>();
 
 
-        [RelayCommand(CanExecute = nameof(CanAdd))]
+        [RelayCommand]
         public void Add()
         {
             //if (Text.IsNullOrEmpty())
@@ -31,10 +33,15 @@
             //items.Add(Text);
             //Text = string.Empty;
         }
-
-        public bool CanAdd()
+        [RelayCommand]
+        public void Settings()
         {
-            return true;
+            Shell.Current.GoToAsync(nameof(SettingsPage));
+            //if (Text.IsNullOrEmpty())
+            //    return;
+            //items.Add(Text);
+            //Text = string.Empty;
         }
+
     }
 }
