@@ -56,11 +56,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="View\" />
+	  <ProjectReference Include="..\HamDotNetToolkit\HamDotNetToolkit.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\HamDotNetToolkit\HamDotNetToolkit.csproj" />
+	  <MauiXaml Update="View\SettingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
