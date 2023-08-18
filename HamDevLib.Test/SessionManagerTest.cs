@@ -1,82 +1,84 @@
-namespace HamDotNetToolkit.Test;
-using HamDotNetToolkit;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.IO;
+//Needs to be moved to loggate test
 
-[TestClass]
-public class SettingManagerTests
-{
-    private string _testFileName;
+//namespace HamDotNetToolkit.Test;
+//using HamDotNetToolkit;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using System.IO;
 
-    [TestInitialize]
-    public void TestInitialize()
-    {
-        _testFileName = "test_settings.json";
-    }
+//[TestClass]
+//public class SettingManagerTests
+//{
+//    private string _testFileName;
 
-    [TestCleanup]
-    public void TestCleanup()
-    {
-        if (File.Exists(_testFileName))
-        {
-            File.Delete(_testFileName);
-        }
-    }
+//    [TestInitialize]
+//    public void TestInitialize()
+//    {
+//        _testFileName = "test_settings.json";
+//    }
 
-    [TestMethod]
-    public void GetSetting_ExistingKey_ReturnsValue()
-    {
-        // Arrange
-        var settingManager = new SettingManager(_testFileName);
-        settingManager.SetSetting("Username", "john_doe");
+//    [TestCleanup]
+//    public void TestCleanup()
+//    {
+//        if (File.Exists(_testFileName))
+//        {
+//            File.Delete(_testFileName);
+//        }
+//    }
 
-        // Act
-        string result = settingManager.GetSetting("Username");
+//    [TestMethod]
+//    public void GetSetting_ExistingKey_ReturnsValue()
+//    {
+//        // Arrange
+//        var settingManager = new SettingManager();
+//        settingManager.SetSetting("Username", "john_doe");
 
-        // Assert
-        Assert.AreEqual("john_doe", result);
-    }
+//        // Act
+//        string result = settingManager.GetSetting("Username");
 
-    [TestMethod]
-    public void GetSetting_NonExistingKey_ReturnsNull()
-    {
-        // Arrange
-        var settingManager = new SettingManager(_testFileName);
+//        // Assert
+//        Assert.AreEqual("john_doe", result);
+//    }
 
-        // Act
-        string result = settingManager.GetSetting("NonExistingKey");
+//    [TestMethod]
+//    public void GetSetting_NonExistingKey_ReturnsNull()
+//    {
+//        // Arrange
+//        var settingManager = new SettingManager(_testFileName);
 
-        // Assert
-        Assert.IsNull(result);
-    }
+//        // Act
+//        string result = settingManager.GetSetting("NonExistingKey");
 
-    [TestMethod]
-    public void SetSetting_ExistingKey_UpdatesValue()
-    {
-        // Arrange
-        var settingManager = new SettingManager(_testFileName);
-        settingManager.SetSetting("Username", "john_doe");
+//        // Assert
+//        Assert.IsNull(result);
+//    }
 
-        // Act
-        settingManager.SetSetting("Username", "new_username");
+//    [TestMethod]
+//    public void SetSetting_ExistingKey_UpdatesValue()
+//    {
+//        // Arrange
+//        var settingManager = new SettingManager(_testFileName);
+//        settingManager.SetSetting("Username", "john_doe");
 
-        // Assert
-        string result = settingManager.GetSetting("Username");
-        Assert.AreEqual("new_username", result);
-    }
+//        // Act
+//        settingManager.SetSetting("Username", "new_username");
 
-    [TestMethod]
-    public void SetSetting_NewKey_AddsKeyValue()
-    {
-        // Arrange
-        var settingManager = new SettingManager(_testFileName);
+//        // Assert
+//        string result = settingManager.GetSetting("Username");
+//        Assert.AreEqual("new_username", result);
+//    }
 
-        // Act
-        settingManager.SetSetting("NewKey", "new_value");
+//    [TestMethod]
+//    public void SetSetting_NewKey_AddsKeyValue()
+//    {
+//        // Arrange
+//        var settingManager = new SettingManager(_testFileName);
 
-        // Assert
-        string result = settingManager.GetSetting("NewKey");
-        Assert.AreEqual("new_value", result);
-    }
-}
+//        // Act
+//        settingManager.SetSetting("NewKey", "new_value");
+
+//        // Assert
+//        string result = settingManager.GetSetting("NewKey");
+//        Assert.AreEqual("new_value", result);
+//    }
+//}
 

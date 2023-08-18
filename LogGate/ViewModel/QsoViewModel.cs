@@ -14,7 +14,7 @@
 
 
         [ObservableProperty]
-        private string name;
+        private string? name;
 
         [ObservableProperty]
         public string mode = string.Empty;
