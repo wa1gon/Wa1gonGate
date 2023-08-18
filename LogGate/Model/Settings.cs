@@ -18,5 +18,6 @@
         public string? TelnetHost { get; set; }
         public string? TelnetPort { get; set; }
         public string? LoginCommand { get; set; }
+
     }
 }

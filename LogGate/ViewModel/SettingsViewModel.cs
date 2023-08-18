@@ -1,19 +1,38 @@
-﻿namespace LogGate.ViewModel
+﻿namespace LogGate.ViewModel;
+
+public partial class SettingsViewModel : ObservableObject
 {
-    public class SettingsViewModel : ObservableObject
+    [ObservableProperty]
+    public string? databaseType = "sqllocal";
+    [ObservableProperty]
+    public string? connectionString;
+    [ObservableProperty]
+    public string? callsign;
+    [ObservableProperty]
+    public string? gridSquare;
+    [ObservableProperty]
+    public decimal latitude;
+    [ObservableProperty]
+    public decimal longitude;
+    [ObservableProperty]
+    public string? initials;
+    [ObservableProperty]
+    public string? state;
+    [ObservableProperty]
+    public string? county;
+    [ObservableProperty]
+    public string? theme;
+    [ObservableProperty]
+    public string? telnetHost;
+    [ObservableProperty]
+    public string? telnetPort;
+    [ObservableProperty]
+    public string? loginCommand;
+
+    [RelayCommand]
+    public void Close()
     {
-        public string? databaseType;
-        public string? connectionString;
-        public string? callsign;
-        public string? gridSquare;
-        public decimal latitude;
-        public decimal longitude;
-        public string? initials;
-        public string? state;
-        public string? county;
-        public string? theme;
-        public string? telnetHost;
-        public string? telnetPort;
-        public string? loginCommand;
+        Shell.Current.GoToAsync("..");
+
     }
 }
