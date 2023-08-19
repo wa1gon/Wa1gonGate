@@ -3,6 +3,16 @@ namespace LogGate.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {
+        SettingManager settingManagerVM;
+        public MainViewModel(SettingManager sm)
+        {
+            settingManagerVM = sm;
+            settingManagerVM.LoadSettings("logGate.json");
+
+            // testing
+            settingManagerVM.SetSetting("call", "WA1GON");
+            settingManagerVM.SaveSettings("logGate.json");
+        }
         ObservableCollection<string> items;
 
         [ObservableProperty]
@@ -32,6 +42,8 @@ namespace LogGate.ViewModel
         [RelayCommand]
         void Add()
         {
+            settingManagerVM.SetSetting(SettingManager.Call, "WA1GON");
+            settingManagerVM.SaveSettings("LogGateSettings.json");
             //if (Text.IsNullOrEmpty())
             //    return;
             //items.Add(Text);
