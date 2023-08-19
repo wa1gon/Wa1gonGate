@@ -35,6 +35,7 @@ public partial class SettingsViewModel : ObservableObject
     public PickerOption DbSelection { get; set; }
 
     private SettingManager settingManager;
+   
 
     public SettingsViewModel(SettingManager sm)
     {

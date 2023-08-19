@@ -47,7 +47,7 @@
             <Button
                 x:Name="saveBtn"
                 Command="{x:Binding SaveCommand}"
-                Grid.Row="1"
+                Grid.Row="2"
                 Margin="5"
                 Grid.Column="0"
                 Text="Close" />
