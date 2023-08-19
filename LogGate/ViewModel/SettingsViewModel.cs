@@ -1,4 +1,7 @@
-﻿namespace LogGate.ViewModel;
+﻿using LogGate.Model;
+using Microsoft.Maui.Controls.Internals;
+
+namespace LogGate.ViewModel;
 
 public partial class SettingsViewModel : ObservableObject
 {
@@ -28,6 +31,18 @@ public partial class SettingsViewModel : ObservableObject
     public string? telnetPort;
     [ObservableProperty]
     public string? loginCommand;
+
+    public PickerOption DbSelection { get; set; }
+    public List<PickerOption> DbOptions { get; set; } = new List<PickerOption>
+        {
+             new PickerOption {  Name="Sqlite", Value="sqlite"},
+             new PickerOption {  Name="LocalDb SQL", Value="local"},
+             //new PickerOption {  Name="Mongo DB", Value="mongo"},
+             new PickerOption {  Name="SQL Server", Value="sqlserver"}
+        };
+
+    
+
 
     [RelayCommand]
     public void Close()

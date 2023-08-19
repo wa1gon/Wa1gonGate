@@ -4,7 +4,7 @@
              xmlns:vm ="clr-namespace:LogGate.ViewModel"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Class="LogGate.View.SettingsPage"
-             Title="Settings"
+             Title="Settings" BackgroundColor="Wheat"
              x:DataType="vm:SettingsViewModel">
     <ContentPage.BindingContext>
         <vm:SettingsViewModel/>
@@ -14,24 +14,30 @@
 
         <Grid RowDefinitions="*,50">
 
-            <FlexLayout Grid.Row="0" Direction="Row" Wrap="Wrap">
-                <VerticalStackLayout>
-                    <Label Text="Database Type"/>
-                    <Entry Placeholder="Database type" Text="{Binding DatabaseType}"></Entry>
+            <FlexLayout Grid.Row="0" Direction="Row" Wrap="Wrap" >
+                <VerticalStackLayout Margin="10,0,0,40">
+                    <Label Text="Database Type" TextColor="Black"/>
+                    <Entry BackgroundColor="White" TextColor="Black"  Placeholder="Database type" Text="{Binding DatabaseType}"></Entry>
                 </VerticalStackLayout>
 
-            <Picker x:Name="hobbiesPicker"
-                Title="Select a Hobby">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Horse Riding</x:String>
-                        <x:String>Amateur Radio</x:String>
-                        <x:String>Coding</x:String>
-                        <x:String>Reading</x:String>
-                        <x:String>Gardening</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
+                <VerticalStackLayout Margin="10,0,0,40">
+                    <Label Text="Latitude" TextColor="Black"/>
+                    <Entry BackgroundColor="White" TextColor="Black"  Placeholder="Latitude" Text="{Binding Latitude, Mode=TwoWay}"></Entry>
+                </VerticalStackLayout>
+
+
+                <Picker x:Name="databasePicker" BackgroundColor="White" TextColor="Black" 
+                        Margin="10,0,10,0" TitleColor="Black" 
+                        Title="Select a Hobby" SelectedItem="{Binding DbSelection}" 
+                        ItemsSource="{Binding DbOptions}" >
+
+                    <Picker.ItemDisplayBinding>
+                        <Binding Path="Name"/>
+                    </Picker.ItemDisplayBinding>
+
+                </Picker>
+                
+                
             </FlexLayout>
             <Button
                 x:Name="btnAdd"
