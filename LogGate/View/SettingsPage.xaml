@@ -19,8 +19,20 @@
                     <Label Text="Database Type"/>
                     <Entry Placeholder="Database type" Text="{Binding DatabaseType}"></Entry>
                 </VerticalStackLayout>
+
+            <Picker x:Name="hobbiesPicker"
+                Title="Select a Hobby">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Horse Riding</x:String>
+                        <x:String>Amateur Radio</x:String>
+                        <x:String>Coding</x:String>
+                        <x:String>Reading</x:String>
+                        <x:String>Gardening</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
             </FlexLayout>
-            
             <Button
                 x:Name="btnAdd"
                 Command="{x:Binding CloseCommand}"
