@@ -33,10 +33,17 @@ public partial class SettingsViewModel : ObservableObject
     public string? loginCommand;
 
     public PickerOption DbSelection { get; set; }
+
+    private SettingManager settingManager;
+
+    public SettingsViewModel(SettingManager sm)
+    {
+          settingManager = sm;
+    }
     public List<PickerOption> DbOptions { get; set; } = new List<PickerOption>
         {
              new PickerOption {  Name="Sqlite", Value="sqlite"},
-             new PickerOption {  Name="LocalDb SQL", Value="local"},
+             new PickerOption {  Name="LocalDb SQL", Value="sqllocal"},
              //new PickerOption {  Name="Mongo DB", Value="mongo"},
              new PickerOption {  Name="SQL Server", Value="sqlserver"}
         };
@@ -48,5 +55,10 @@ public partial class SettingsViewModel : ObservableObject
     public void Close()
     {
         Shell.Current.GoToAsync("..");
+    }
+    [RelayCommand]
+    public void Save()
+    {
+        settingManager.SaveSettings("LogGate.json");
     }
 }
