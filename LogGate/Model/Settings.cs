@@ -5,9 +5,10 @@
     /// </summary>
     public class Settings
     {
+        public string? Callsign { get; set; }
         public string? DatabaseType { get; set; } = null;
         public string? ConnectionString { get; set; } = null;
-        public string? Callsign { get; set; }
+
         public string? GridSquare { get; set; }
         public decimal Latitude { get; set; }
         public decimal Longitude { get; set; }

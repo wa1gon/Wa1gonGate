@@ -6,35 +6,51 @@
              x:Class="LogGate.View.SettingsPage"
              Title="Settings" BackgroundColor="Wheat"
              x:DataType="vm:SettingsViewModel">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="LightGray" />
+                <Setter Property="BackgroundColor" Value="DarkGreen" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="TitleColor" Value="Black" />
+
+            </Style>
+            
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="BackgroundColor" Value="DarkGreen" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ScrollView>
 
-        <Grid RowDefinitions="*,50">
+        <Grid RowDefinitions="*,50" ColumnDefinitions="*,*,*,*,*,*">
 
+            <VerticalStackLayout Margin="10,0,0,40" Grid.Column="0">
+                        
+                <Label Text="Longitude" TextColor="Black"/>
+                <Entry Placeholder="Longitude" Text="{Binding Longitude}"></Entry>
+            </VerticalStackLayout>
 
-            <Frame Grid.Row="0" BackgroundColor="Gray" Padding="10">
-                <HorizontalStackLayout >
-                    <VerticalStackLayout Margin="10,0,0,40">
-                        <Label Text="Longitude" TextColor="Black"/>
-                        <Entry BackgroundColor="White" TextColor="Black"  Placeholder="Longitude" 
-                                Text="{Binding Longitude}"></Entry>
-                    </VerticalStackLayout>
-
-                    <VerticalStackLayout Margin="10,0,0,40">
+            <VerticalStackLayout Margin="10,0,0,40"  Grid.Column="1">
                         <Label Text="Latitude" TextColor="Black"/>
-                        <Entry BackgroundColor="White" TextColor="Black"  Placeholder="Latitude" 
+                        <Entry   Placeholder="Latitude" 
                                 Text="{Binding Latitude}"></Entry>
                     </VerticalStackLayout>
-                
-                    <VerticalStackLayout Margin="10,0,0,40">
-                        <Label Text="Grid Square" TextColor="Black"/>
-                        <Entry BackgroundColor="White" TextColor="Black"  Placeholder="Grid Square" 
-                                Text="{Binding GridSquare}"></Entry>
-                    </VerticalStackLayout>
-                </HorizontalStackLayout>
-            </Frame>
 
-            <Picker x:Name="databasePicker" BackgroundColor="White" TextColor="Black" 
-                    Margin="10,0,10,0" TitleColor="Black" 
+            <VerticalStackLayout Margin="10,0,0,40" Grid.Column="2">
+                <Label Text="Grid Square" TextColor="Black"/>
+                <Entry Placeholder="Grid Square" 
+                        Text="{Binding GridSquare}"></Entry>
+            </VerticalStackLayout>
+                    
+            <Picker x:Name="databasePicker" 
+
+
+                    Margin="10,0,10,0"   Grid.Column="3"
                     Title="Select Database" SelectedItem="{Binding DbSelection}" 
                     ItemsSource="{Binding DbOptions}" >
 
@@ -44,19 +60,25 @@
 
             </Picker>
 
+
+
+
+
             <Button
                 x:Name="saveBtn"
                 Command="{x:Binding SaveCommand}"
                 Grid.Row="2"
                 Margin="5"
                 Grid.Column="0"
-                Text="Close" />
+                Grid.ColumnSpan="3"
+                Text="Save" />
             <Button
                 x:Name="btnAdd"
                 Command="{x:Binding CloseCommand}"
                 Grid.Row="1"
                 Margin="5"
-                Grid.Column="0"
+                Grid.Column="3"
+                Grid.ColumnSpan="3"
                 Text="Close" />
         </Grid>
     </ScrollView>

@@ -1,4 +1,5 @@
-﻿using LogGate.Model;
+﻿using HamDotNetToolkit;
+using LogGate.Model;
 using Microsoft.Maui.Controls.Internals;
 
 namespace LogGate.ViewModel;
@@ -40,7 +41,21 @@ public partial class SettingsViewModel : ObservableObject
     public SettingsViewModel(SettingManager sm)
     {
           settingManager = sm;
+        LoadSettingsIntoModel();
     }
+
+    private void LoadSettingsIntoModel()
+    {
+        Callsign = settingManager.GetSetting(nameof(Callsign));
+        DatabaseType = settingManager.GetSetting(nameof(DatabaseType));
+        County = settingManager.GetSetting(nameof(County));
+        GridSquare = settingManager.GetSetting(nameof(GridSquare));
+        ConnectionString = settingManager.GetSetting(nameof(ConnectionString));
+
+        Latitude = settingManager.GetSetting(nameof(Latitude)).ParseOrDefault<decimal>();
+
+    }
+
     public List<PickerOption> DbOptions { get; set; } = new List<PickerOption>
         {
              new PickerOption {  Name="Sqlite", Value="sqlite"},
