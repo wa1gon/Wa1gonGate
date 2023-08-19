@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using LogGate.View;
 using LogGate.ViewModel;
 using Microsoft.Extensions.Logging;
 
@@ -19,6 +20,8 @@ public static class MauiProgram
         builder.UseMauiApp<App>().UseMauiCommunityToolkit();
 
         builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<SettingsPage>();
+        builder.Services.AddSingleton<SettingsViewModel>();
         builder.Services.AddSingleton<SettingManager>();
         builder.Services.AddTransient<MainViewModel>();
         //builder.Services.AddTransient<QsoViewModel>();

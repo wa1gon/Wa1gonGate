@@ -1,5 +1,4 @@
-﻿
-namespace LogGate.ViewModel
+﻿namespace LogGate.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {
@@ -38,16 +37,6 @@ namespace LogGate.ViewModel
         public MainViewModel()
         {
             items = new ObservableCollection<string>();
-        }
-        [RelayCommand]
-        void Add()
-        {
-            settingManagerVM.SetSetting(SettingManager.Call, "WA1GON");
-            settingManagerVM.SaveSettings("LogGateSettings.json");
-            //if (Text.IsNullOrEmpty())
-            //    return;
-            //items.Add(Text);
-            //Text = string.Empty;
         }
     }
 }
