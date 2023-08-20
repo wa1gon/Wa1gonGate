@@ -30,39 +30,34 @@
         <Grid RowDefinitions="*,50" ColumnDefinitions="*,*,*,*,*,*">
 
             <VerticalStackLayout Margin="10,0,0,40" Grid.Column="0">
+
+                <Label Text="Callsign" TextColor="Black"/>
+                <Entry Placeholder="Callsign" Text="{Binding Callsign}"></Entry>
+            </VerticalStackLayout>
+            
+            <VerticalStackLayout Margin="10,0,0,40" Grid.Column="1">
                         
                 <Label Text="Longitude" TextColor="Black"/>
                 <Entry Placeholder="Longitude" Text="{Binding Longitude}"></Entry>
             </VerticalStackLayout>
 
-            <VerticalStackLayout Margin="10,0,0,40"  Grid.Column="1">
+            <VerticalStackLayout Margin="10,0,0,40"  Grid.Column="2">
                         <Label Text="Latitude" TextColor="Black"/>
                         <Entry   Placeholder="Latitude" 
                                 Text="{Binding Latitude}"></Entry>
                     </VerticalStackLayout>
 
-            <VerticalStackLayout Margin="10,0,0,40" Grid.Column="2">
+            <VerticalStackLayout Margin="10,0,0,40" Grid.Column="3">
                 <Label Text="Grid Square" TextColor="Black"/>
                 <Entry Placeholder="Grid Square" 
                         Text="{Binding GridSquare}"></Entry>
             </VerticalStackLayout>
-                    
+
             <Picker x:Name="databasePicker" 
-
-
-                    Margin="10,0,10,0"   Grid.Column="3"
-                    Title="Select Database" SelectedItem="{Binding DbSelection}" 
+                    Margin="10,0,10,0"   Grid.Column="4"
+                    Title="Select Database" SelectedItem="{Binding DbSelection, Mode=TwoWay}" 
                     ItemsSource="{Binding DbOptions}" >
-
-                <Picker.ItemDisplayBinding>
-                    <Binding Path="Name"/>
-                </Picker.ItemDisplayBinding>
-
             </Picker>
-
-
-
-
 
             <Button
                 x:Name="saveBtn"

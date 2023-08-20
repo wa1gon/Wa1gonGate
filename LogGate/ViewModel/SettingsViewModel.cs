@@ -1,8 +1,4 @@
-﻿using HamDotNetToolkit;
-using LogGate.Model;
-using Microsoft.Maui.Controls.Internals;
-
-namespace LogGate.ViewModel;
+﻿namespace LogGate.ViewModel;
 
 public partial class SettingsViewModel : ObservableObject
 {
@@ -39,24 +35,22 @@ public partial class SettingsViewModel : ObservableObject
     [ObservableProperty]
     public int formHight;
 
-
-    public PickerOption DbSelection { get; set; } = new();
+    [ObservableProperty]
+    public string dbSelection;
 
     private SettingManager settingManager;
-   
+
 
     public SettingsViewModel(SettingManager sm)
     {
-          settingManager = sm;
-
+        settingManager = sm;
         LoadSettingsIntoModel();
     }
 
     private void LoadSettingsIntoModel()
     {
         Callsign = settingManager.GetSetting(nameof(Callsign));
-        DatabaseType = settingManager.GetSetting(nameof(DatabaseType));
-        DbSelection.Value = databaseType;
+        DbSelection = settingManager.GetSetting(nameof(DatabaseType));
 
         ConnectionString = settingManager.GetSetting(nameof(ConnectionString));
         County = settingManager.GetSetting(nameof(County));
@@ -66,7 +60,7 @@ public partial class SettingsViewModel : ObservableObject
         TelnetHost = settingManager.GetSetting(nameof(TelnetHost));
         TelnetPort = settingManager.GetSetting(nameof(TelnetPort)).ParseOrDefault<int>();
         LoginCommand = settingManager.GetSetting(nameof(LoginCommand));
-       
+
 
         ConnectionString = settingManager.GetSetting(nameof(ConnectionString));
 
@@ -78,15 +72,18 @@ public partial class SettingsViewModel : ObservableObject
 
     }
 
-    public List<PickerOption> DbOptions { get; set; } = new List<PickerOption>
+    public List<string> DbOptions { get; set; } = new List<string>
         {
-             new PickerOption {  Name="Sqlite", Value="sqlite"},
-             new PickerOption {  Name="LocalDb SQL", Value="sqllocal"},
-             //new PickerOption {  Name="Mongo DB", Value="mongo"},
-             new PickerOption {  Name="SQL Server", Value="sqlserver"}
+             "Sqlite",
+             "LocalDB",
+             "SQL Server"
+             //new PickerOption {  Name="Sqlite", Value="sqlite"},
+             //new PickerOption {  Name="LocalDb SQL", Value="sqllocal"},
+             ////new PickerOption {  Name="Mongo DB", Value="mongo"},
+             //new PickerOption {  Name="SQL Server", Value="sqlserver"}
         };
 
-    
+
 
 
     [RelayCommand]
@@ -98,7 +95,7 @@ public partial class SettingsViewModel : ObservableObject
     public void Save()
     {
         settingManager.SetSetting(nameof(Callsign), Callsign);
-        settingManager.SetSetting(nameof(DatabaseType), DbSelection.Value);
+        settingManager.SetSetting(nameof(DatabaseType), DbSelection);
         settingManager.SetSetting(nameof(ConnectionString), ConnectionString);
         settingManager.SetSetting(nameof(GridSquare), GridSquare);
         settingManager.SetSetting(nameof(Latitude), Latitude);
