@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="LogGate.View.SettingsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:vm="[vm ]clr-namespace:LogGate.ViewModel"
+    Title="Settings"
+    x:DataType="vm:SettingsViewModel"
+    BackgroundColor="Wheat">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Picker">
+                <Setter Property="TextColor" Value="LightGray" />
+                <Setter Property="BackgroundColor" Value="DarkGreen" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="TitleColor" Value="Black" />
+
+            </Style>
+
+            <Style TargetType="Entry">
+                <Setter Property="TextColor" Value="Gray" />
+                <Setter Property="BackgroundColor" Value="DarkGreen" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+
+        <Grid ColumnDefinitions="*,*,*,*,*,*" RowDefinitions="*,50">
+
+            <VerticalStackLayout Grid.Column="0" Margin="10,0,0,40">
+                <Label Text="Callsign" TextColor="Black" />
+                <Entry Placeholder="Callsign" Text="{Binding Callsign}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" Margin="10,0,0,40">
+                <Label Text="Longitude" TextColor="Black" />
+                <Entry Placeholder="Longitude" Text="{Binding Longitude}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" Margin="10,0,0,40">
+                <Label Text="Latitude" TextColor="Black" />
+                <Entry Placeholder="Latitude" Text="{Binding Latitude}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="3" Margin="10,0,0,40">
+                <Label Text="Grid Square" TextColor="Black" />
+                <Entry Placeholder="Grid Square" Text="{Binding GridSquare}" />
+            </VerticalStackLayout>
+
+            <Picker
+                x:Name="databasePicker"
+                Title="Select Database"
+                Grid.Column="4"
+                Margin="10,0,10,0"
+                ItemsSource="{Binding DbOptions}"
+                SelectedItem="{Binding DbSelection, Mode=TwoWay}" />
+
+            <Button
+                x:Name="saveBtn"
+                Grid.Row="2"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                Margin="5"
+                Command="{x:Binding SaveCommand}"
+                Text="Save" />
+            <Button
+                x:Name="btnAdd"
+                Grid.Row="1"
+                Grid.Column="3"
+                Grid.ColumnSpan="3"
+                Margin="5"
+                Command="{x:Binding CloseCommand}"
+                Text="Close" />
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

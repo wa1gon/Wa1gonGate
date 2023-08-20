@@ -31,52 +31,43 @@ public static class CommonExtMethods
         return genericCollection.Count < 1;
     }
 
-    /// <summary>
-    /// Added file method and line number information to a string.
-    /// changes string to be in the format of "Line: 153|Original String - someFile.cs (Some method name)
-    /// Usage:  anyString.LineInfo();
-    /// </summary>
-    /// <param name="message"></param>
-    /// <param name="memberName">Added by the compiler</param>
-    /// <param name="path">Path added by the compiler, but strips path and reports only file name</param>
-    /// <param name="lineNumber">Line number added by the compiler</param>
-    /// <returns>The original string with location information.</returns>
-    //public static string LineInfo(this string message,
-    //    [CallerMemberName] string memberName = "",
-    //    [CallerFilePath] string path = "",
-    //    [CallerLineNumber] int lineNumber = 0)
-    //{
-    //    var list = path.Split('\\');
-    //    var len = list.Length;
-    //    var fileName = list[len - 1];
-    //    return $"Line: {lineNumber}|{message} - {fileName} ({memberName}) ";
-    //}
+    public static T ParseOrDefault<T>(this string input) where T : struct
+    {
+        if (string.IsNullOrWhiteSpace(input))
+        {
+            return default;
+        }
 
-    //public static T DeepClone(this T source)
-    //{
-    //    if (source is null)
-    //    {
-    //        return default;
-    //    }
+        input = GetNumericString(input);
 
-    //    var original = JsonSerializer.Serialize<T>(source);
-    //    var clone = JsonSerializer.Deserialize<T>(original);
-    //    return clone;
-    //}
-    //public static string ToClassString(this WhichShowEnum value)
-    //{
-    //    switch (value)
-    //    {
-    //        case WhichShowEnum.Concurrent:
-    //            return "Concurrent";
-    //        case WhichShowEnum.ShowA:
-    //            return "Show A";
-    //        case WhichShowEnum.ShowB:
-    //            return "Show B";
-    //        case WhichShowEnum.ShowC:
-    //            return "Show C";
-    //        default:
-    //            throw new ArgumentException("Invalid enum value.");
-    //    }
-    //}
+        if (typeof(T) == typeof(int))
+        {
+            if (int.TryParse(input, out int parsedValue))
+            {
+                return (T)(object)parsedValue;
+            }
+        }
+        else if (typeof(T) == typeof(decimal))
+        {
+            if (decimal.TryParse(input, out decimal parsedValue))
+            {
+                return (T)(object)parsedValue;
+            }
+        }
+        else if (typeof(T) == typeof(float))
+        {
+            if (float.TryParse(input, out float parsedValue))
+            {
+                return (T)(object)parsedValue;
+            }
+        }
+
+        return default;
+    }
+    private static string GetNumericString(string input)
+    {
+        char[] validChars = { '.', '-', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+        char[] numericChars = input.Where(c => validChars.Contains(c)).ToArray();
+        return new string(numericChars);
+    }
 }

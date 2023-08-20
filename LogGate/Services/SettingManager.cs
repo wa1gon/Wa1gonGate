@@ -29,6 +29,10 @@ public class SettingManager
     public const string DatabaseType = "formWidth"; // local,sql, sqlite, databaseGate
     public const string ConnectionString = "connectionString";
 
+    public SettingManager()
+    {
+        LoadSettings("LogGate.json");
+    }
     public void LoadSettings(string fileName)
     {
         try
@@ -62,17 +66,33 @@ public class SettingManager
         File.WriteAllText(fileName, json);
     }
 
-    public string? GetSetting(string key)
+    public string GetSetting(string key)
     {
         if (settings.TryGetValue(key, out string? value))
         {
             return value;
         }
-        return null; // Setting not found
+        return string.Empty; // Setting not found
     }
 
     public void SetSetting(string key, string value)
     {
+        if (value.IsNullOrEmpty())
+            return;
+
         settings[key] = value;
+    }
+
+    public void SetSetting(string key, decimal value)
+    {
+        settings[key] = value.ToString();
+    }
+    public void SetSetting(string key, int value)
+    {
+        settings[key] = value.ToString();
+    }
+    public void SetSetting(string key, long value)
+    {
+        settings[key] = value.ToString();
     }
 }
