@@ -29,6 +29,10 @@ public class SettingManager
     public const string DatabaseType = "formWidth"; // local,sql, sqlite, databaseGate
     public const string ConnectionString = "connectionString";
 
+    public SettingManager()
+    {
+        LoadSettings("LogGate.json");
+    }
     public void LoadSettings(string fileName)
     {
         try
@@ -91,6 +95,4 @@ public class SettingManager
     {
         settings[key] = value.ToString();
     }
-    public static void Testmethod()
-    { }
 }

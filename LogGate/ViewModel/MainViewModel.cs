@@ -6,7 +6,7 @@
         public MainViewModel(SettingManager sm)
         {
             settingManagerVM = sm;
-            settingManagerVM.LoadSettings("logGate.json");
+            //settingManagerVM.LoadSettings("logGate.json");
 
             // testing
             settingManagerVM.SetSetting("call", "WA1GON");

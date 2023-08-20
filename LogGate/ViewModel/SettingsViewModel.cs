@@ -34,6 +34,10 @@ public partial class SettingsViewModel : ObservableObject
     public int formWidth;
     [ObservableProperty]
     public int formHight;
+    [ObservableProperty]
+    public string rigCtldAddress;
+    [ObservableProperty]
+    public int rigCtldPort;
 
     [ObservableProperty]
     public string dbSelection;
@@ -47,30 +51,7 @@ public partial class SettingsViewModel : ObservableObject
         LoadSettingsIntoModel();
     }
 
-    private void LoadSettingsIntoModel()
-    {
-        Callsign = settingManager.GetSetting(nameof(Callsign));
-        DbSelection = settingManager.GetSetting(nameof(DatabaseType));
 
-        ConnectionString = settingManager.GetSetting(nameof(ConnectionString));
-        County = settingManager.GetSetting(nameof(County));
-        State = settingManager.GetSetting(nameof(State));
-        Initials = settingManager.GetSetting(nameof(Initials));
-        Theme = settingManager.GetSetting(nameof(Theme));
-        TelnetHost = settingManager.GetSetting(nameof(TelnetHost));
-        TelnetPort = settingManager.GetSetting(nameof(TelnetPort)).ParseOrDefault<int>();
-        LoginCommand = settingManager.GetSetting(nameof(LoginCommand));
-
-
-        ConnectionString = settingManager.GetSetting(nameof(ConnectionString));
-
-        GridSquare = settingManager.GetSetting(nameof(GridSquare));
-        Latitude = settingManager.GetSetting(nameof(Latitude)).ParseOrDefault<decimal>();
-        Longitude = settingManager.GetSetting(nameof(Longitude)).ParseOrDefault<decimal>();
-
-        Operator = settingManager.GetSetting(nameof(Operator));
-
-    }
 
     public List<string> DbOptions { get; set; } = new List<string>
         {
@@ -91,27 +72,65 @@ public partial class SettingsViewModel : ObservableObject
     {
         Shell.Current.GoToAsync("..");
     }
+
+    private void LoadSettingsIntoModel()
+    {
+        MapSettingManagerToVM();
+
+        void MapSettingManagerToVM()
+        {
+            Callsign = settingManager.GetSetting(nameof(Callsign));
+            DbSelection = settingManager.GetSetting(nameof(DatabaseType));
+
+            ConnectionString = settingManager.GetSetting(nameof(ConnectionString));
+            County = settingManager.GetSetting(nameof(County));
+            State = settingManager.GetSetting(nameof(State));
+            Initials = settingManager.GetSetting(nameof(Initials));
+            Theme = settingManager.GetSetting(nameof(Theme));
+            TelnetHost = settingManager.GetSetting(nameof(TelnetHost));
+            TelnetPort = settingManager.GetSetting(nameof(TelnetPort)).ParseOrDefault<int>();
+            LoginCommand = settingManager.GetSetting(nameof(LoginCommand));
+
+
+            ConnectionString = settingManager.GetSetting(nameof(ConnectionString));
+
+            GridSquare = settingManager.GetSetting(nameof(GridSquare));
+            Latitude = settingManager.GetSetting(nameof(Latitude)).ParseOrDefault<decimal>();
+            Longitude = settingManager.GetSetting(nameof(Longitude)).ParseOrDefault<decimal>();
+
+            Operator = settingManager.GetSetting(nameof(Operator));
+            RigCtldPort = settingManager.GetSetting(nameof(RigCtldPort)).ParseOrDefault<int>();
+            RigCtldAddress = settingManager.GetSetting(nameof(RigCtldAddress));
+        }
+
+    }
     [RelayCommand]
     public void Save()
     {
-        settingManager.SetSetting(nameof(Callsign), Callsign);
-        settingManager.SetSetting(nameof(DatabaseType), DbSelection);
-        settingManager.SetSetting(nameof(ConnectionString), ConnectionString);
-        settingManager.SetSetting(nameof(GridSquare), GridSquare);
-        settingManager.SetSetting(nameof(Latitude), Latitude);
-        settingManager.SetSetting(nameof(Longitude), Longitude);
-        settingManager.SetSetting(nameof(Initials), Initials);
-        settingManager.SetSetting(nameof(State), State);
-        settingManager.SetSetting(nameof(County), County);
-        settingManager.SetSetting(nameof(Theme), Theme);
-        settingManager.SetSetting(nameof(TelnetHost), TelnetHost);
-        settingManager.SetSetting(nameof(TelnetPort), TelnetPort);
-        settingManager.SetSetting(nameof(LoginCommand), LoginCommand);
-        settingManager.SetSetting(nameof(Operator), Operator);
-        settingManager.SetSetting(nameof(FormHight), FormHight);
-        settingManager.SetSetting(nameof(FormWidth), FormWidth);
-
+        MapModelToSessionManager();
 
         settingManager.SaveSettings("LogGate.json");
+
+        void MapModelToSessionManager()
+        {
+            settingManager.SetSetting(nameof(Callsign), Callsign);
+            settingManager.SetSetting(nameof(DatabaseType), DbSelection);
+            settingManager.SetSetting(nameof(ConnectionString), ConnectionString);
+            settingManager.SetSetting(nameof(GridSquare), GridSquare);
+            settingManager.SetSetting(nameof(Latitude), Latitude);
+            settingManager.SetSetting(nameof(Longitude), Longitude);
+            settingManager.SetSetting(nameof(Initials), Initials);
+            settingManager.SetSetting(nameof(State), State);
+            settingManager.SetSetting(nameof(County), County);
+            settingManager.SetSetting(nameof(Theme), Theme);
+            settingManager.SetSetting(nameof(TelnetHost), TelnetHost);
+            settingManager.SetSetting(nameof(TelnetPort), TelnetPort);
+            settingManager.SetSetting(nameof(LoginCommand), LoginCommand);
+            settingManager.SetSetting(nameof(Operator), Operator);
+            settingManager.SetSetting(nameof(FormHight), FormHight);
+            settingManager.SetSetting(nameof(FormWidth), FormWidth);
+            settingManager.SetSetting(nameof(RigCtldAddress), RigCtldAddress);
+            settingManager.SetSetting(nameof(RigCtldPort), RigCtldPort);
+        }
     }
 }
