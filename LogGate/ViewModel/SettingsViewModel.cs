@@ -107,11 +107,11 @@ public partial class SettingsViewModel : ObservableObject
     [RelayCommand]
     public void Save()
     {
-        MapModelToSessionManager();
+        MapModelToSettingManager();
 
         settingManager.SaveSettings("LogGate.json");
 
-        void MapModelToSessionManager()
+        void MapModelToSettingManager()
         {
             settingManager.SetSetting(nameof(Callsign), Callsign);
             settingManager.SetSetting(nameof(DatabaseType), DbSelection);
