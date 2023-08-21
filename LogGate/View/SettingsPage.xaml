@@ -67,7 +67,8 @@
             </HorizontalStackLayout>
 
 
-            <HorizontalStackLayout Grid.Row="2" VerticalOptions="Center" >
+            <VerticalStackLayout Grid.Row="2" VerticalOptions="Center" >
+                
                 <VerticalStackLayout VerticalOptions="Center" Padding="5">
                 <Label Text="Database Type" TextColor="Black" Margin="12,0,0,0"  FontAttributes="Bold" />
                 <Picker x:Name="databasePicker"
@@ -82,7 +83,7 @@
                     <Entry Placeholder="Connections String" Text="{Binding ConnectionString}" />
                 </VerticalStackLayout>
                 
-            </HorizontalStackLayout>
+            </VerticalStackLayout>
 
             <Button x:Name="saveBtn"
                     Grid.Row="5"
