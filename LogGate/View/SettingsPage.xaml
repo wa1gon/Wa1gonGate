@@ -32,11 +32,11 @@
 
     <ScrollView>
 
-        <Grid ColumnDefinitions="*,*,*,*" RowDefinitions="*,*,*,*,*,50" ColumnSpacing="10">
+        <Grid ColumnDefinitions="auto,*,*,*" RowDefinitions="auto,*,*,*,*,50" ColumnSpacing="10">
 
 
-            <HorizontalStackLayout VerticalOptions="Start" >
-                <VerticalStackLayout Margin="10,20,0,0">
+            <HorizontalStackLayout VerticalOptions="Start" Margin="0,10,0,10" Padding="0,10">
+                <VerticalStackLayout Margin="10,10,0,0" VerticalOptions="Center" Padding="0,0,0,10">
                     <Label Text="Callsign" TextColor="Black"  FontAttributes="Bold"/>
                     <Entry Placeholder="Callsign"
                            Text="{Binding Callsign}"
@@ -67,9 +67,9 @@
             </HorizontalStackLayout>
 
 
-            <VerticalStackLayout Grid.Row="2" VerticalOptions="Center" >
+            <VerticalStackLayout Grid.Row="2" VerticalOptions="Center" BackgroundColor="White" >
                 
-                <VerticalStackLayout VerticalOptions="Center" Padding="5">
+                <VerticalStackLayout VerticalOptions="Center" Padding="5" >
                 <Label Text="Database Type" TextColor="Black" Margin="12,0,0,0"  FontAttributes="Bold" />
                 <Picker x:Name="databasePicker"
 
