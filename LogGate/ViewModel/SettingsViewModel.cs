@@ -38,6 +38,8 @@ public partial class SettingsViewModel : ObservableObject
     public string rigCtldAddress;
     [ObservableProperty]
     public int rigCtldPort;
+    [ObservableProperty]
+    public int licensesKey;
 
     [ObservableProperty]
     public string dbSelection;
