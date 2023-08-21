@@ -57,6 +57,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\HamDotNetToolkit\HamDotNetToolkit.csproj" />
+	  <ProjectReference Include="..\SqlServerRepo\SqlServerRepo.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
