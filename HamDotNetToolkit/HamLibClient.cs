@@ -40,8 +40,6 @@ namespace HamDotNetToolkit
             reader = new StreamReader(networkStream, Encoding.ASCII);
             writer = new StreamWriter(networkStream, Encoding.ASCII);
             IsConnected = true;
-            //ValidModes = GetValidModes();
-
         }
 
         public void Disconnect()
