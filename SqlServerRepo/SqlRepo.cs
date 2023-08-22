@@ -18,7 +18,6 @@ namespace SqlServerRepo
             if (context is not null)
                 return;
             context = new QsoContext("Data Source = (localDB)\\MSSQLLocalDB; Initial Catalog = AmateurRadio");
-            //context = new QsoContext("Data Source = Spock\\sqlexpress\\B; Initial Catalog = AmateurRadio");
         }
         public bool AddQso(Qso qso, bool defer = true)
         {
