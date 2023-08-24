@@ -3,6 +3,7 @@ using LogGate.View;
 using LogGate.ViewModel;
 using Microsoft.Extensions.Logging;
 using SqlServerRepo;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace LogGate;
 
@@ -12,6 +13,7 @@ public static class MauiProgram
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();
+        builder.ConfigureSyncfusionCore();
         builder
             .UseMauiApp<App>()
             .ConfigureFonts(fonts =>
