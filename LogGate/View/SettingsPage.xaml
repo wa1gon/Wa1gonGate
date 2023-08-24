@@ -2,7 +2,7 @@
 <ContentPage x:Class="LogGate.View.SettingsPage"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:control="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:sfInputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:vm="clr-namespace:LogGate.ViewModel"
              Title="Settings"
@@ -102,7 +102,7 @@
                     -->
 
 
-                    <control:SfComboBox DisplayMemberPath="Name" 
+                    <sfInputs:SfComboBox DisplayMemberPath="Name" 
                                         ItemsSource="{Binding DbOptionType}"
                                         Placeholder="Select Database type"
                                         SelectedIndex="0"
