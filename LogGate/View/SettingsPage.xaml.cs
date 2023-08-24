@@ -1,4 +1,5 @@
 using LogGate.ViewModel;
+using System.Text.RegularExpressions;
 
 namespace LogGate.View;
 
@@ -17,6 +18,28 @@ public partial class SettingsPage : ContentPage
         {
             entry.Text = e.NewTextValue.ToUpper();
         }
+    }
+    private void FixGridSquare(object sender, TextChangedEventArgs e)
+    {
+        if (e.NewTextValue.IsNullOrEmpty() == true) return;
+
+        if (sender is Entry entry)
+        {
+            // Remove non-alphanumeric characters
+            string cleanedInput = Regex.Replace(e.NewTextValue, "[^a-zA-Z0-9]", "");
+
+            // Convert to uppercase
+            string upperCaseInput = cleanedInput.ToUpper();
+
+            // Format as grid square (example: EF42ab)
+            string firstPart = upperCaseInput.Length >= 2 ? upperCaseInput.Substring(0, 2) : "";
+            string secondPart = upperCaseInput.Length >= 4 ? upperCaseInput.Substring(2, 2) : "";
+            string thirdPart = upperCaseInput.Length >= 6 ? upperCaseInput.Substring(4, Math.Min(2, upperCaseInput.Length - 4)).ToLower() : "";
+            string gridSquare = $"{firstPart}{secondPart}{thirdPart}";
+
+            entry.Text = gridSquare;
+        }
+
     }
     private void OnNumericEntryTextChanged(object sender, TextChangedEventArgs e)
     {

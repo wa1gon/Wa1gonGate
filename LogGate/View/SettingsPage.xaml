@@ -38,65 +38,65 @@
               ColumnSpacing="10"
               RowDefinitions="auto,*,*,*,*,50">
 
-
             <HorizontalStackLayout Margin="0,10,0,10"
                                    Padding="0,10"
                                    VerticalOptions="Start">
                 <VerticalStackLayout Margin="10,10,0,0"
                                      Padding="0,0,0,10"
                                      VerticalOptions="Center">
-                    <sf:SfTextInputLayout ContainerType="Outlined"
-                                          Hint="Your Callsign"
-                                          CharMaxLength="8"
+                    <sf:SfTextInputLayout CharMaxLength="8"
+                                          ContainerType="Outlined"
                                           ErrorText="Error"
-                                          HasError="False"                                        
-                                          WidthRequest="200">
+                                          HasError="False"
+                                          Hint="Your Callsign"
+                                          WidthRequest="100">
                         <Entry BackgroundColor="Green"
                                Placeholder="Callsign"
                                Text="{Binding Callsign}"
-                               TextChanged="ForceUppercase" 
+                               TextChanged="ForceUppercase"
                                TextColor="Black" />
                     </sf:SfTextInputLayout>
 
-                    <!--
-                    <Label FontAttributes="Bold"
-                           Text="Callsign"
-                           TextColor="Black" />
-                    <Entry Placeholder="Callsign"
-                           Text="{Binding Callsign}"
-                           TextChanged="ForceUppercase" />
-                    -->
                 </VerticalStackLayout>
 
             </HorizontalStackLayout>
 
+
             <HorizontalStackLayout Grid.Row="1"
                                    BackgroundColor="White"
                                    VerticalOptions="Start">
-                <VerticalStackLayout Margin="10,0,0,40">
-                    <Label FontAttributes="Bold"
-                           Text="Longitude"
-                           TextColor="Black" />
+                <sf:SfTextInputLayout Margin="10,20,0,40"
+                                      ContainerType="Outlined"
+                                      Hint="Longitude ex: 121.43"
+                                      WidthRequest="150">
                     <Entry Placeholder="Longitude"
                            Text="{Binding Longitude}"
-                           TextChanged="OnNumericEntryTextChanged" />
-                </VerticalStackLayout>
-
-                <VerticalStackLayout Margin="10,0,0,40">
-                    <Label FontAttributes="Bold"
-                           Text="Latitude"
+                           TextChanged="OnNumericEntryTextChanged"
                            TextColor="Black" />
+                </sf:SfTextInputLayout>
+
+                <sf:SfTextInputLayout Margin="10,20,0,40"
+                                      ContainerType="Outlined"
+                                      Hint="Latitude ex: 32.43"
+                                      WidthRequest="150">
                     <Entry Placeholder="Latitude"
                            Text="{Binding Latitude}"
-                           TextChanged="OnNumericEntryTextChanged" />
-                </VerticalStackLayout>
-
-                <VerticalStackLayout Margin="10,0,0,40">
-                    <Label FontAttributes="Bold"
-                           Text="Grid Square"
+                           TextChanged="OnNumericEntryTextChanged"
                            TextColor="Black" />
-                    <Entry Placeholder="Grid Square" Text="{Binding GridSquare}" />
-                </VerticalStackLayout>
+                </sf:SfTextInputLayout>
+
+
+                <sf:SfTextInputLayout Margin="10,20,0,40"
+                                      ContainerType="Outlined"
+                                      Hint="Latitude ex: EF42ac"
+                                      WidthRequest="150">
+                    <Entry BackgroundColor="Green"
+                           Placeholder="Grid Square"
+                           Text="{Binding GridSquare}"
+                           TextChanged="FixGridSquare"
+                           TextColor="Black" />
+                </sf:SfTextInputLayout>
+
             </HorizontalStackLayout>
 
 
@@ -104,40 +104,47 @@
                                  BackgroundColor="White"
                                  VerticalOptions="Center">
 
-                <VerticalStackLayout Padding="5" VerticalOptions="Center">
-                    <Label Margin="12,0,0,0"
-                           FontAttributes="Bold"
-                           Text="Database Type"
-                           TextColor="Black" />
-                    <!--
-                <Picker x:Name="databasePicker"
-
-                        Margin="10,0,10,0"
-                        ItemsSource="{Binding DbOptions}"
-                        SelectedItem="{Binding DbSelection, Mode=TwoWay}" />
-                    -->
+                <VerticalStackLayout Padding="5"
+                                     HorizontalOptions="Start"
+                                     VerticalOptions="Center">
+                    <sf:SfTextInputLayout Margin="10,20,0,40"
+                                          ContainerType="Outlined"
+                                          Hint="Database Type"
+                                          WidthRequest="300">
 
 
-                    <sfInputs:SfComboBox ClearButtonIconColor="Red"
-                                         DisplayMemberPath="Name"
-                                         DropDownIconColor="Green"
-                                         IsEditable="False"
-                                         ItemsSource="{Binding DbOptionType}"
-                                         Placeholder="Select Database type"
-                                         PlaceholderColor="DarkGray"
-                                         SelectedIndex="0"
-                                         SelectedItem="{Binding DbType}" />
-
+                        <sfInputs:SfComboBox ClearButtonIconColor="Red"
+                                             DisplayMemberPath="Name"
+                                             DropDownIconColor="Green"
+                                             IsEditable="False"
+                                             ItemsSource="{Binding DbOptionType}"
+                                             Placeholder="Select Database type"
+                                             PlaceholderColor="DarkGray"
+                                             SelectedIndex="0"
+                                             SelectedItem="{Binding DbType}"
+                                             WidthRequest="300" />
+                    </sf:SfTextInputLayout>
 
                 </VerticalStackLayout>
 
                 <VerticalStackLayout Margin="10,0,0,40"
                                      Padding="5"
-                                     VerticalOptions="Center">
+                                     VerticalOptions="Start"
+                                     HorizontalOptions="Start">
+                    <sf:SfTextInputLayout Margin="0,20,0,40"
+                                          ContainerType="Outlined"
+                                          Hint="Database Connection String"
+                                          WidthRequest="400">
+                        <Entry Placeholder="Connections String" 
+                               TextColor="Black"
+                               Text="{Binding ConnectionString}" />
+                    </sf:SfTextInputLayout>
+                    <!--
                     <Label FontAttributes="Bold"
                            Text="Connection String"
                            TextColor="Black" />
                     <Entry Placeholder="Connections String" Text="{Binding ConnectionString}" />
+                    -->
                 </VerticalStackLayout>
 
             </VerticalStackLayout>
