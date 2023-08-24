@@ -2,6 +2,7 @@
 <ContentPage x:Class="LogGate.View.SettingsPage"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sf="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              xmlns:sfInputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:vm="clr-namespace:LogGate.ViewModel"
@@ -44,12 +45,27 @@
                 <VerticalStackLayout Margin="10,10,0,0"
                                      Padding="0,0,0,10"
                                      VerticalOptions="Center">
+                    <sf:SfTextInputLayout ContainerType="Outlined"
+                                          Hint="Your Callsign"
+                                          CharMaxLength="8"
+                                          ErrorText="Error"
+                                          HasError="False"                                        
+                                          WidthRequest="200">
+                        <Entry BackgroundColor="Green"
+                               Placeholder="Callsign"
+                               Text="{Binding Callsign}"
+                               TextChanged="ForceUppercase" 
+                               TextColor="Black" />
+                    </sf:SfTextInputLayout>
+
+                    <!--
                     <Label FontAttributes="Bold"
                            Text="Callsign"
                            TextColor="Black" />
                     <Entry Placeholder="Callsign"
                            Text="{Binding Callsign}"
                            TextChanged="ForceUppercase" />
+                    -->
                 </VerticalStackLayout>
 
             </HorizontalStackLayout>
@@ -102,15 +118,15 @@
                     -->
 
 
-                    <sfInputs:SfComboBox DisplayMemberPath="Name" 
-                                        ItemsSource="{Binding DbOptionType}"
-                                        Placeholder="Select Database type"
-                                        SelectedIndex="0"
-                                        SelectedItem="{Binding DbType}"
-                                        PlaceholderColor="DarkGray"
-                                        DropDownIconColor="Green"
-                                        IsEditable="False"
-                                        ClearButtonIconColor="Red"/>
+                    <sfInputs:SfComboBox ClearButtonIconColor="Red"
+                                         DisplayMemberPath="Name"
+                                         DropDownIconColor="Green"
+                                         IsEditable="False"
+                                         ItemsSource="{Binding DbOptionType}"
+                                         Placeholder="Select Database type"
+                                         PlaceholderColor="DarkGray"
+                                         SelectedIndex="0"
+                                         SelectedItem="{Binding DbType}" />
 
 
                 </VerticalStackLayout>
