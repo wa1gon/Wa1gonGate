@@ -1,4 +1,6 @@
-﻿namespace LogGate.ViewModel;
+﻿using LogGate.Model;
+
+namespace LogGate.ViewModel;
 
 public partial class SettingsViewModel : ObservableObject
 {
@@ -44,28 +46,30 @@ public partial class SettingsViewModel : ObservableObject
     [ObservableProperty]
     public string dbSelection;
 
+    [ObservableProperty]
+    public DatabaseTypeModel dbType;
+
     private SettingManager settingManager;
 
 
     public SettingsViewModel(SettingManager sm)
     {
+        this.settingManager = sm;
         settingManager = sm;
+        dbType = new();
+        dbType.Name = string.Empty;
+        dbType.Value = string.Empty;
         LoadSettingsIntoModel();
     }
 
 
 
-    public List<string> DbOptions { get; set; } = new List<string>
-        {
-             "Sqlite",
-             "LocalDB",
-             "SQL Server"
-             //new PickerOption {  Name="Sqlite", Value="sqlite"},
-             //new PickerOption {  Name="LocalDb SQL", Value="sqllocal"},
-             ////new PickerOption {  Name="Mongo DB", Value="mongo"},
-             //new PickerOption {  Name="SQL Server", Value="sqlserver"}
-        };
-
+    public List<DatabaseTypeModel> DbOptionType { get; set; } = new List<DatabaseTypeModel>
+    {
+        new DatabaseTypeModel() { Name="SQLite", Value="SqLite"},
+        new DatabaseTypeModel() { Name="MicroSoft SQL (include LocalDB)", Value="MSSQL"},
+        new DatabaseTypeModel() { Name="Mongo Database", Value="MongoDb"}
+    };
 
 
 
@@ -82,8 +86,9 @@ public partial class SettingsViewModel : ObservableObject
         void MapSettingManagerToVM()
         {
             Callsign = settingManager.GetSetting(nameof(Callsign));
-            DbSelection = settingManager.GetSetting(nameof(DatabaseType));
-
+            //DbSelection = settingManager.GetSetting(nameof(DatabaseType));
+            var dbtype =settingManager.GetSetting(nameof(DatabaseType));
+            dbType = DbOptionType.FirstOrDefault(x => x.Value == dbtype);
             ConnectionString = settingManager.GetSetting(nameof(ConnectionString));
             County = settingManager.GetSetting(nameof(County));
             State = settingManager.GetSetting(nameof(State));
@@ -116,7 +121,7 @@ public partial class SettingsViewModel : ObservableObject
         void MapModelToSettingManager()
         {
             settingManager.SetSetting(nameof(Callsign), Callsign);
-            settingManager.SetSetting(nameof(DatabaseType), DbSelection);
+            settingManager.SetSetting(nameof(DatabaseType), dbType.Value);
             settingManager.SetSetting(nameof(ConnectionString), ConnectionString);
             settingManager.SetSetting(nameof(GridSquare), GridSquare);
             settingManager.SetSetting(nameof(Latitude), Latitude);
