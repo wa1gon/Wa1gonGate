@@ -6,7 +6,7 @@ namespace HamDotNetToolkit
 {
     public class HamLibClient : IRigControl
     {
-        private TcpClient? client;
+        private TcpClientWrapper? client;
         private StreamReader? reader;
         private StreamWriter? writer;
 
@@ -34,7 +34,7 @@ namespace HamDotNetToolkit
 
         public void Connect(string host, int port)
         {
-            client = new TcpClient();
+            client = new TcpClientWrapper();
             client.Connect(host, port);
             var networkStream = client.GetStream();
             reader = new StreamReader(networkStream, Encoding.ASCII);
