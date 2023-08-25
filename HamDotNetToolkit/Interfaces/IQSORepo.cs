@@ -11,7 +11,6 @@ namespace HamDotNetToolkit
         //bool UpdateByQso(Qso qso);
         bool AddQso(Qso qso, bool defer = true);
         void CreateContext(string connectionString);
-        void CreateContext();
         void SaveChanges();
     }
 }

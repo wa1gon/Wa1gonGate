@@ -11,5 +11,9 @@
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 	<PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DatabaseRepo\" />
+  </ItemGroup>
   
 </Project>
