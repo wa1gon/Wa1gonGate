@@ -1,23 +1,23 @@
 ﻿using HamDotNetToolkit;
-
+using SqliteRepo;
 
 namespace SqlServerRepo
 {
-    public class SqlRepo : IQSORepo
+    public class SqliteRepo : IQSORepo
     {
-        protected QsoSqlContext? context = null;
+        protected QsoSqliteContext? context = null;
         public void CreateContext(string connectionString)
         {
             if (context is not null)
                 return;
-            context = new QsoSqlContext(connectionString);
+            context = new QsoSqliteContext(connectionString);
 
         }
         public void CreateContext()
         {
             if (context is not null)
                 return;
-            context = new QsoSqlContext("Data Source = (localDB)\\MSSQLLocalDB; Initial Catalog = AmateurRadio");
+            context = new QsoSqliteContext("Data Source = (localDB)\\MSSQLLocalDB; Initial Catalog = AmateurRadio");
         }
         public bool AddQso(Qso qso, bool defer = true)
         {

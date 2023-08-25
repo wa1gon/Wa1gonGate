@@ -5,19 +5,19 @@ namespace SqlServerRepo
 {
     public class SqlRepo : IQSORepo
     {
-        protected QsoSqlContext? context = null;
+        protected QsoContext? context = null;
         public void CreateContext(string connectionString)
         {
             if (context is not null)
                 return;
-            context = new QsoSqlContext(connectionString);
+            context = new QsoContext(connectionString);
 
         }
         public void CreateContext()
         {
             if (context is not null)
                 return;
-            context = new QsoSqlContext("Data Source = (localDB)\\MSSQLLocalDB; Initial Catalog = AmateurRadio");
+            context = new QsoContext("Data Source = (localDB)\\MSSQLLocalDB; Initial Catalog = AmateurRadio");
         }
         public bool AddQso(Qso qso, bool defer = true)
         {

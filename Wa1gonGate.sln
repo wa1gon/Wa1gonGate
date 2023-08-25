@@ -19,13 +19,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlDemo", "SqlDemo\SqlDemo.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqlServerRepo", "SqlServerRepo\SqlServerRepo.csproj", "{8DE8947A-5CB7-44EF-9D17-DA63BB7365AF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoApp", "TodoApp\TodoApp.csproj", "{DF338520-12DD-4DB5-A392-E8D933780E14}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogGate", "LogGate\LogGate.csproj", "{1BAD8E13-80BE-4DC4-800A-BD1B4577AF65}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HamDevLib.Test", "HamDevLib.Test\HamDevLib.Test.csproj", "{99BB2AB0-2826-47DE-B39D-696E56DE3425}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HamDotNetToolkit", "HamDotNetToolkit\HamDotNetToolkit.csproj", "{23D0EFCE-2D43-42B4-81D3-F783C22672E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteDemo", "SqliteDemo\SqliteDemo.csproj", "{BB5F9F3F-8DC6-4CC4-A1E4-08EC7CFD0620}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,12 +61,6 @@ Global
 		{8DE8947A-5CB7-44EF-9D17-DA63BB7365AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DE8947A-5CB7-44EF-9D17-DA63BB7365AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DE8947A-5CB7-44EF-9D17-DA63BB7365AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF338520-12DD-4DB5-A392-E8D933780E14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF338520-12DD-4DB5-A392-E8D933780E14}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF338520-12DD-4DB5-A392-E8D933780E14}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{DF338520-12DD-4DB5-A392-E8D933780E14}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF338520-12DD-4DB5-A392-E8D933780E14}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF338520-12DD-4DB5-A392-E8D933780E14}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{1BAD8E13-80BE-4DC4-800A-BD1B4577AF65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1BAD8E13-80BE-4DC4-800A-BD1B4577AF65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BAD8E13-80BE-4DC4-800A-BD1B4577AF65}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -81,6 +75,10 @@ Global
 		{23D0EFCE-2D43-42B4-81D3-F783C22672E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23D0EFCE-2D43-42B4-81D3-F783C22672E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23D0EFCE-2D43-42B4-81D3-F783C22672E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB5F9F3F-8DC6-4CC4-A1E4-08EC7CFD0620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB5F9F3F-8DC6-4CC4-A1E4-08EC7CFD0620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB5F9F3F-8DC6-4CC4-A1E4-08EC7CFD0620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB5F9F3F-8DC6-4CC4-A1E4-08EC7CFD0620}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
