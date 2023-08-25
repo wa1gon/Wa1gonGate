@@ -48,8 +48,9 @@
                                           ContainerType="Outlined"
                                           ErrorText="Error"
                                           HasError="False"
+                                          WidthRequest="150"
                                           Hint="Your Callsign"
-                                          WidthRequest="100">
+                                          >
                         <Entry BackgroundColor="Green"
                                Placeholder="Callsign"
                                Text="{Binding Callsign}"
@@ -65,20 +66,22 @@
             <HorizontalStackLayout Grid.Row="1"
                                    BackgroundColor="White"
                                    VerticalOptions="Start">
-                <sf:SfTextInputLayout Margin="10,20,0,40"
+                <sf:SfTextInputLayout Margin="10,20,0,40" VerticalOptions="Center"
                                       ContainerType="Outlined"
-                                      Hint="Longitude ex: 121.43"
-                                      WidthRequest="150">
+                                      Hint="Longitude"
+                                      WidthRequest="100"
+                                      HeightRequest="80">
                     <Entry Placeholder="Longitude"
                            Text="{Binding Longitude}"
                            TextChanged="OnNumericEntryTextChanged"
                            TextColor="Black" />
                 </sf:SfTextInputLayout>
 
-                <sf:SfTextInputLayout Margin="10,20,0,40"
+                <sf:SfTextInputLayout Margin="10,20,0,40" VerticalOptions="Center"
                                       ContainerType="Outlined"
-                                      Hint="Latitude ex: 32.43"
-                                      WidthRequest="150">
+                                      Hint="Latitude"
+                                      HeightRequest="80"
+                                      WidthRequest="100">
                     <Entry Placeholder="Latitude"
                            Text="{Binding Latitude}"
                            TextChanged="OnNumericEntryTextChanged"
@@ -88,12 +91,13 @@
 
                 <sf:SfTextInputLayout Margin="10,20,0,40"
                                       ContainerType="Outlined"
-                                      Hint="Latitude ex: EF42ac"
-                                      WidthRequest="150">
+                                      Hint="Grid Square"
+                                      VerticalOptions="Center"
+                                      HeightRequest="80"
+                                      WidthRequest="100">
                     <Entry BackgroundColor="Green"
                            Placeholder="Grid Square"
                            Text="{Binding GridSquare}"
-                           TextChanged="FixGridSquare"
                            TextColor="Black" />
                 </sf:SfTextInputLayout>
 
@@ -134,7 +138,7 @@
                     <sf:SfTextInputLayout Margin="0,20,0,40"
                                           ContainerType="Outlined"
                                           Hint="Database Connection String"
-                                          WidthRequest="400">
+                                          >
                         <Entry Placeholder="Connections String" 
                                TextColor="Black"
                                Text="{Binding ConnectionString}" />
