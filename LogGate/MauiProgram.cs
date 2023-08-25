@@ -3,14 +3,17 @@ using LogGate.View;
 using LogGate.ViewModel;
 using Microsoft.Extensions.Logging;
 using SqlServerRepo;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace LogGate;
 
 public static class MauiProgram
 {
+    private static string key = "MjY2MTYwOEAzMjMyMmUzMDJlMzBsVU1hYTlhYTBRVkdRaVByRE9UZE1vTXNra0gxZEJjRm9vb1lrMVo2MmV3PQ==;MjY2MTYwOUAzMjMyMmUzMDJlMzBCeWJZMzJMeFZUaUhSMm5xTGZIVVhvV0pIc1JnNERNbEk5cGJFWWpJZEdFPQ==";
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();
+        builder.ConfigureSyncfusionCore();
         builder
             .UseMauiApp<App>()
             .ConfigureFonts(fonts =>
