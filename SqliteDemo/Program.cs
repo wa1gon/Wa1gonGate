@@ -2,11 +2,11 @@
 using AdifLib;
 
 using HamDotNetToolkit;
-using SqlServerRepo;
+using SqliteRepo;
 
 string databaseName = "AmateurRadioTest";
-using (QsoSqlContext context = new QsoSqlContext($"Data Source = (localDB)\\MSSQLLocalDB; Initial Catalog = {databaseName}"))
-//using (QsoContext context = new QsoContext("Data Source = Spock\\sqlexpress\\B; Initial Catalog = AmateurRadio"))
+string conntectionString = @"Data Source=c:\temp\amateurRadio.db";
+using (QsoSqliteContext context = new QsoSqliteContext(conntectionString))
 {
     context.Database.EnsureCreated();
 }
@@ -16,8 +16,8 @@ AddQso();
 
 void GetQsos()
 {
-    using var context = new QsoSqlContext($"Data Source = (localDB)\\MSSQLLocalDB; Initial Catalog = {databaseName}");
-    //using var context = new QsoContext("Data Source = Spock\\sqlexpress\\B; Initial Catalog = AmateurRadio");
+    using var context = new QsoSqliteContext(conntectionString);
+
     var qsos = context.Qsos.ToList();
     foreach (var qso in qsos)
     {
@@ -28,8 +28,8 @@ void AddQso()
 {
     Console.WriteLine($"Start time: {DateTime.Now}");
     var rc = AdifReader.ReadAdifFromFile("C:/tmp/adifdata/FullAClogAdif.adi");
-    using (QsoSqlContext context = new QsoSqlContext($"Data Source = (localDB)\\MSSQLLocalDB; Initial Catalog = {databaseName}"))
-    //using (QsoContext context = new QsoContext("Data Source = Spock\\sqlexpress\\B; Initial Catalog = AmateurRadio"))
+    using (QsoSqliteContext context = new QsoSqliteContext(conntectionString))
+
     {
         context.Database.EnsureCreated();
 
