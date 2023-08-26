@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace SqlServerRepo
+namespace SqliteLib
 {
     public class QsoContext : DbContext
     {

@@ -2,7 +2,7 @@
 using AdifLib;
 
 using HamDotNetToolkit;
-using SqliteRepo;
+using SqliteLib;
 
 string databaseName = "AmateurRadioTest";
 string conntectionString = @"Data Source=c:\temp\amateurRadio.db";

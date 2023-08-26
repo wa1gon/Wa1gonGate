@@ -47,7 +47,7 @@ public partial class SettingsViewModel : ObservableObject
     public string dbSelection;
 
     [ObservableProperty]
-    public DatabaseTypeModel dbType;
+    public DatabaseTypeModel? dbType;
 
     private SettingManager settingManager;
 

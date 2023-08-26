@@ -2,7 +2,7 @@
 using LogGate.View;
 using LogGate.ViewModel;
 using Microsoft.Extensions.Logging;
-using SqlServerRepo;
+using SqliteLib;
 using Syncfusion.Maui.Core.Hosting;
 
 namespace LogGate;
@@ -26,7 +26,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<SettingsPage>();
         builder.Services.AddSingleton<SettingsViewModel>();
-        builder.Services.AddSingleton<IQSORepo, SqlRepo>();
+        builder.Services.AddSingleton<IQSORepo, SqliteRepo>();
         builder.Services.AddSingleton<SettingManager>();
         builder.Services.AddTransient<MainViewModel>();
         //builder.Services.AddTransient<QsoViewModel>();

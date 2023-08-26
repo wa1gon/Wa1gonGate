@@ -14,20 +14,20 @@ public class SettingManager
     private readonly string? fileName;
     private Dictionary<string, string> settings = new();
 
-    public const string Call = "call";
-    public const string Contry = "country";
-    public const string Continent = "continent";
-    public const string Lat = "lat";
-    public const string Long = "long";
-    public const string Operator = "operator";
-    public const string Initials = "initials";
-    public const string Grid = "grid";
-    public const string State = "state";
-    public const string County = "county";
-    public const string FormWidth = "formWidth";
-    public const string FormHeight = "formHeight";
-    public const string DatabaseType = "formWidth"; // local,sql, sqlite, databaseGate
-    public const string ConnectionString = "connectionString";
+    public const string Call = "Call";
+    public const string Country = "Country";
+    public const string Continent = "Continent";
+    public const string Lat = "Lat";
+    public const string Long = "Long";
+    public const string Operator = "Operator";
+    public const string Initials = "Initials";
+    public const string Grid = "Grid";
+    public const string State = "State";
+    public const string County = "County";
+    public const string FormWidth = "FormWidth";
+    public const string FormHeight = "FormHeight";
+    public const string DatabaseType = "DatabaseType"; // local,sql, sqlite, databaseGate
+    public const string ConnectionString = "ConnectionString";
 
     public SettingManager()
     {
