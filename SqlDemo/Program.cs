@@ -2,7 +2,7 @@
 using AdifLib;
 
 using HamDotNetToolkit;
-using SqlServerRepo;
+using SqliteLib;
 
 string databaseName = "AmateurRadioTest";
 using (QsoSqlContext context = new QsoSqlContext($"Data Source = (localDB)\\MSSQLLocalDB; Initial Catalog = {databaseName}"))

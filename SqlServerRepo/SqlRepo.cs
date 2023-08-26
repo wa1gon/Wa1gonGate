@@ -1,7 +1,7 @@
 ﻿using HamDotNetToolkit;
 
 
-namespace SqlServerRepo
+namespace SqliteLib
 {
     public class SqlRepo : IQSORepo
     {

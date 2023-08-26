@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 
 
-namespace SqlServerRepo
+namespace SqliteLib
 {
     //Refactor: This and the sqlite could be made into on class
     public class QsoSqlContext : DbContext
