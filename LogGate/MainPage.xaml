@@ -5,12 +5,34 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:vm ="clr-namespace:LogGate.ViewModel"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    x:DataType="vm:QsoViewModel">
+    x:DataType="vm:QsoViewModel"
+    BackgroundColor="Wheat">
 
     <ContentPage.BindingContext>
         <vm:QsoViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="File">
+            <MenuFlyoutItem Text="Save"></MenuFlyoutItem>
+            <MenuFlyoutItem Text="Setting" Command="{x:Binding SettingsCommand}"/>
 
+        </MenuBarItem>
+        <MenuBarItem Text="Menu 2">
+            <MenuFlyoutItem Text="menu 2"></MenuFlyoutItem>
+            <MenuFlyoutItem Text="Setting" Command="{x:Binding SettingsCommand}"/>
+        </MenuBarItem>
+
+        <MenuBarItem Text="Menu 3">
+            <MenuFlyoutItem Text="menu 2"></MenuFlyoutItem>
+            <MenuFlyoutItem Text="Setting" Command="{x:Binding SettingsCommand}"/>
+        </MenuBarItem>
+
+        <MenuBarItem Text="Menu 4">
+            <MenuFlyoutItem Text="menu 2"></MenuFlyoutItem>
+            <MenuFlyoutItem Text="Setting" Command="{x:Binding SettingsCommand}"/>
+        </MenuBarItem>
+
+    </ContentPage.MenuBarItems>
     <ScrollView>
         <Grid
             Padding="5"
