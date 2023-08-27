@@ -14,7 +14,6 @@ namespace LogGate.ViewModel
         [ObservableProperty]
         public DateTime qsoTimeOnly;
 
-
         [ObservableProperty]
         private string? name;
 
@@ -27,7 +26,13 @@ namespace LogGate.ViewModel
         [ObservableProperty]
         public ICollection<QsoDetail> qsoDetails = new List<QsoDetail>();
 
-
+        private void ForceUppercase(object sender, TextChangedEventArgs e)
+        {
+            if (sender is Entry entry)
+            {
+                entry.Text = e.NewTextValue?.ToUpper();
+            }
+        }
         [RelayCommand]
         public void Add()
         {

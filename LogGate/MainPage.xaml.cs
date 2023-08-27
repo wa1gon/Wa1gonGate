@@ -14,6 +14,12 @@ public partial class MainPage : ContentPage
         mainPageVM = mpvm;
 
     }
-
+    private void ForceUppercase(object sender, TextChangedEventArgs e)
+    {
+        if (sender is Entry entry)
+        {
+            entry.Text = e.NewTextValue?.ToUpper();
+        }
+    }
 }
 
