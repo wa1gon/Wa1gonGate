@@ -58,19 +58,19 @@ namespace LogGate.ViewModel
                 "PKT",
                 "PSK31",
                 "PSK2K",
-                // need more
-                "Radar",
                 "ROS",
                 "RTTY",
+                "RTTYM",
+                "SSB",
                 "SSTV",
+                "T10",
+                "THOR",
+                "THRB",
                 "TOR",
-                "Throb",
-                "Thor",
+                "WINMOR",
                 "WSPR",
-                "WSJT-X",
- 
-                // Add more modes here
             };
+
         private void ForceUppercase(object sender, TextChangedEventArgs e)
         {
             if (sender is Entry entry)
