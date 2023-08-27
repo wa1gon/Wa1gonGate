@@ -73,7 +73,7 @@
                        Grid.ColumnSpan="2"
                        Placeholder="Search Contact" />
 
-            <FlexLayout Grid.Row="1"
+            <FlexLayout Grid.Row="2"
                         Grid.ColumnSpan="2"
                         Direction="Row"
                         Wrap="Wrap">
@@ -114,10 +114,27 @@
                                           Hint="Mode"
                                           WidthRequest="150">
 
+                        <sfInputs:SfAutocomplete ItemsSource="{Binding ModeList}"
+                                             HeightRequest="44" SelectedItem="{Binding Mode}"
+
+                                                 >
+
+                        </sfInputs:SfAutocomplete>
+                    </sf:SfTextInputLayout>
+
+                    <!--
+                    <sf:SfTextInputLayout CharMaxLength="8"
+                                          ContainerType="Outlined"
+                                          ErrorText="Error"
+                                          HasError="False"
+                                          Hint="Mode"
+                                          WidthRequest="150">
+
                         <Entry Placeholder="Mode"
                                Text="{Binding Mode}"
                                TextColor="Black" />
                     </sf:SfTextInputLayout>
+                    -->
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
@@ -163,13 +180,13 @@
                     Margin="5"
                     Command="{x:Binding AddCommand}"
                     Text="Add QSO" />
-            
+
             <Button x:Name="btnSettings"
                     Grid.Row="2"
                     Grid.Column="1"
                     Margin="5"
                     Command="{x:Binding SettingsCommand}"
-                    Text="Settings" />            
+                    Text="Settings" />
         </Grid>
     </ScrollView>
 
