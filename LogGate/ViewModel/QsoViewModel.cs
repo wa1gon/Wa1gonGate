@@ -22,6 +22,9 @@ namespace LogGate.ViewModel
         public string mode = string.Empty;
 
         [ObservableProperty]
+        public decimal freq = 0;
+
+        [ObservableProperty]
         public ICollection<QsoDetail> qsoDetails = new List<QsoDetail>();
 
 

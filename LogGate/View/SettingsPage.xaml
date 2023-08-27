@@ -25,62 +25,55 @@
                 <Setter Property="BackgroundColor" Value="DarkGreen" />
                 <Setter Property="TextColor" Value="White" />
             </Style>
-            <Style TargetType="HorizontalStackLayout">
-                <Setter Property="BackgroundColor" Value="White" />
 
-            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <ScrollView>
 
-        <Grid ColumnDefinitions="auto,*,*,*"
+        <Grid ColumnDefinitions="auto,auto,auto,*"
               ColumnSpacing="10"
-              RowDefinitions="auto,*,*,*,*,50">
-
-            <HorizontalStackLayout Margin="0,10,0,10"
-                                   Padding="0,10"
-                                   VerticalOptions="Start">
-                <VerticalStackLayout Margin="10,10,0,0"
-                                     Padding="0,0,0,10"
-                                     VerticalOptions="Center">
-                    <sf:SfTextInputLayout CharMaxLength="8"
-                                          ContainerType="Outlined"
-                                          ErrorText="Error"
-                                          HasError="False"
-                                          WidthRequest="150"
-                                          Hint="Your Callsign"
-                                          >
-                        <Entry BackgroundColor="Green"
-                               Placeholder="Callsign"
-                               Text="{Binding Callsign}"
-                               TextChanged="ForceUppercase"
-                               TextColor="Black" />
-                    </sf:SfTextInputLayout>
-
-                </VerticalStackLayout>
-
-            </HorizontalStackLayout>
+              RowDefinitions="auto,80,80,80,*,50">
 
 
-            <HorizontalStackLayout Grid.Row="1"
-                                   BackgroundColor="White"
-                                   VerticalOptions="Start">
-                <sf:SfTextInputLayout Margin="10,20,0,40" VerticalOptions="Center"
+            <VerticalStackLayout Margin="10,10,0,0" Grid.Row="0"
+                                 Padding="0,0,0,10"
+                                 VerticalOptions="Start" HorizontalOptions="Start">
+                <sf:SfTextInputLayout CharMaxLength="8"
                                       ContainerType="Outlined"
+                                      ErrorText="Error"
+                                      HasError="False"
+                                      Hint="Your Callsign"
+                                      WidthRequest="150">
+                    <Entry BackgroundColor="Green"
+                           Placeholder="Callsign"
+                           Text="{Binding Callsign}"
+                           TextChanged="ForceUppercase"
+                           TextColor="Black" />
+                </sf:SfTextInputLayout>
+
+            </VerticalStackLayout>
+
+
+
+            <HorizontalStackLayout Grid.Row="1" VerticalOptions="Start">
+                <sf:SfTextInputLayout Margin="10,20,0,40"
+                                      ContainerType="Outlined"
+                                      HeightRequest="80"
                                       Hint="Longitude"
-                                      WidthRequest="100"
-                                      HeightRequest="80">
+                                      VerticalOptions="Center"
+                                      WidthRequest="100">
                     <Entry Placeholder="Longitude"
                            Text="{Binding Longitude}"
                            TextChanged="OnNumericEntryTextChanged"
                            TextColor="Black" />
                 </sf:SfTextInputLayout>
 
-                <sf:SfTextInputLayout Margin="10,20,0,40" VerticalOptions="Center"
+                <sf:SfTextInputLayout Margin="10,20,0,40"
                                       ContainerType="Outlined"
-                                      Hint="Latitude"
                                       HeightRequest="80"
+                                      Hint="Latitude"
+                                      VerticalOptions="Center"
                                       WidthRequest="100">
                     <Entry Placeholder="Latitude"
                            Text="{Binding Latitude}"
@@ -91,9 +84,9 @@
 
                 <sf:SfTextInputLayout Margin="10,20,0,40"
                                       ContainerType="Outlined"
+                                      HeightRequest="80"
                                       Hint="Grid Square"
                                       VerticalOptions="Center"
-                                      HeightRequest="80"
                                       WidthRequest="100">
                     <Entry BackgroundColor="Green"
                            Placeholder="Grid Square"
@@ -104,14 +97,12 @@
             </HorizontalStackLayout>
 
 
-            <VerticalStackLayout Grid.Row="2"
-                                 BackgroundColor="White"
-                                 VerticalOptions="Center">
+            <VerticalStackLayout Grid.Row="2" VerticalOptions="Start" >
 
                 <VerticalStackLayout Padding="5"
                                      HorizontalOptions="Start"
-                                     VerticalOptions="Center">
-                    <sf:SfTextInputLayout Margin="10,20,0,40"
+                                     VerticalOptions="Start">
+                    <sf:SfTextInputLayout Margin="5,0,0,0"
                                           ContainerType="Outlined"
                                           Hint="Database Type"
                                           WidthRequest="300">
@@ -131,17 +122,16 @@
 
                 </VerticalStackLayout>
 
-                <VerticalStackLayout Margin="10,0,0,40"
+                <VerticalStackLayout Margin="5,-20,0,40"
                                      Padding="5"
-                                     VerticalOptions="Start"
-                                     HorizontalOptions="Start">
-                    <sf:SfTextInputLayout Margin="0,20,0,40"
+                                     HorizontalOptions="Start"
+                                     VerticalOptions="Start">
+                    <sf:SfTextInputLayout Margin="0,20,0,40" WidthRequest="300"
                                           ContainerType="Outlined"
-                                          Hint="Database Connection String"
-                                          >
-                        <Entry Placeholder="Connections String" 
-                               TextColor="Black"
-                               Text="{Binding ConnectionString}" />
+                                          Hint="Database Connection String">
+                        <Entry Placeholder="Connections String"
+                               Text="{Binding ConnectionString}"
+                               TextColor="Black" />
                     </sf:SfTextInputLayout>
                     <!--
                     <Label FontAttributes="Bold"
