@@ -12,7 +12,7 @@
     <ContentPage.BindingContext>
         <vm:QsoViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Picker">
@@ -40,7 +40,7 @@
 
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ContentPage.MenuBarItems>
         <MenuBarItem Text="File">
             <MenuFlyoutItem Text="Save" />
@@ -84,8 +84,9 @@
                                           HasError="False"
                                           Hint="Your Callsign"
                                           WidthRequest="150">
-                        <Entry Placeholder="Call Sign" TextChanged="ForceUppercase"
+                        <Entry Placeholder="Call Sign"
                                Text="{Binding Call}"
+                               TextChanged="ForceUppercase"
                                TextColor="Black" />
                     </sf:SfTextInputLayout>
                 </VerticalStackLayout>
@@ -120,11 +121,11 @@
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
-                    <sf:SfTextInputLayout CharMaxLength="8"
+                    <sf:SfTextInputLayout Padding="0,-10,0,0"
+                                          CharMaxLength="8"
                                           ContainerType="Outlined"
                                           ErrorText="Error"
                                           HasError="False"
-                                          Padding="0,-10,0,0"
                                           Hint="Name"
                                           WidthRequest="200">
 
@@ -162,14 +163,13 @@
                     Margin="5"
                     Command="{x:Binding AddCommand}"
                     Text="Add QSO" />
-<!--
+            
             <Button x:Name="btnSettings"
                     Grid.Row="2"
                     Grid.Column="1"
                     Margin="5"
                     Command="{x:Binding SettingsCommand}"
-                    Text="Settings" />
--->
+                    Text="Settings" />            
         </Grid>
     </ScrollView>
 

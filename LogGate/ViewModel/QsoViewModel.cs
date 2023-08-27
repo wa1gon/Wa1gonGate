@@ -51,6 +51,5 @@ namespace LogGate.ViewModel
             //items.Add(Text);
             //Text = string.Empty;
         }
-
     }
 }
