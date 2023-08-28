@@ -1,4 +1,5 @@
-﻿using LogGate.View;
+﻿using CommunityToolkit.Maui.Core.Extensions;
+using LogGate.View;
 
 namespace LogGate.ViewModel
 {
@@ -27,9 +28,12 @@ namespace LogGate.ViewModel
         [ObservableProperty]
         public ICollection<QsoDetail> qsoDetails = new List<QsoDetail>();
 
-        Thread? RadioThread = null;
-        
+        [ObservableProperty]
+        ObservableCollection<Qso> qsos = new ();
 
+        Thread? RadioThread = null;
+
+        public IQSORepo repo;
         public List<string> ModeList { get; set; } = new List<string>()
         {
                 "8PSK125",
@@ -159,6 +163,10 @@ namespace LogGate.ViewModel
             if (RadioThread is not null) return;
             RadioThread = new Thread(GetRadioInfo);
             RadioThread.Start();
+        }
+        public void GetAllQsos()
+        {
+            Qsos = repo.GetAllQsos().ToObservableCollection();
         }
         public void GetRadioInfo()
         {

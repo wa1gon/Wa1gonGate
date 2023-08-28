@@ -4,13 +4,18 @@ public partial class MainPage : ContentPage
 {
 
     private QsoViewModel qsoVm;
-    public MainPage(QsoViewModel mpvm)
+    private SettingManager sm;
+    public MainPage(QsoViewModel mpvm, IQSORepo repo, SettingManager sm)
     {
 
         InitializeComponent();
+        this.sm = sm;
         qsoVm = mpvm;
         this.BindingContext = qsoVm;
         qsoVm.StartThread();
+        qsoVm.repo = repo;
+        qsoVm.repo.CreateContext(sm.GetSetting(SettingManager.ConnectionString));
+        qsoVm.GetAllQsos();
 
     }
     private void ForceUppercase(object sender, TextChangedEventArgs e)
