@@ -9,8 +9,8 @@
             //settingManagerVM.LoadSettings("logGate.json");
 
             // testing
-            settingManagerVM.SetSetting("call", "WA1GON");
-            settingManagerVM.SaveSettings("logGate.json");
+            //settingManagerVM.SetSetting("call", "WA1GON");
+            //settingManagerVM.SaveSettings("logGate.json");
         }
         ObservableCollection<string> items;
 

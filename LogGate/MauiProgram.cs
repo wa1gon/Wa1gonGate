@@ -26,6 +26,7 @@ public static class MauiProgram
         builder.Services.AddSingleton<MainPage>();
         builder.Services.AddSingleton<SettingsPage>();
         builder.Services.AddSingleton<SettingsViewModel>();
+        builder.Services.AddSingleton<QsoViewModel>();
         builder.Services.AddSingleton<IQSORepo, SqliteRepo>();
         builder.Services.AddSingleton<SettingManager>();
         builder.Services.AddTransient<MainViewModel>();

@@ -16,7 +16,7 @@ public partial class SettingsPage : ContentPage
     {
         if (sender is Entry entry)
         {
-            entry.Text = e.NewTextValue.ToUpper();
+            entry.Text = e.NewTextValue?.ToUpper();
         }
     }
     private void FixGridSquare(object sender, TextChangedEventArgs e)

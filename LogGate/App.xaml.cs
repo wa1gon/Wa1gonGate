@@ -21,7 +21,22 @@ public partial class App : Application
     {
         string dbName = sm.GetSetting(SettingManager.DatabaseType);
         string connection = sm.GetSetting(SettingManager.ConnectionString);
+    }
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        var window = base.CreateWindow(activationState);
 
+        const int newWidth = 800;
+        const int newHeight = 600;
 
+        window.X = 100;
+        window.Y = 200;
+
+        window.Width = newWidth;
+        window.Height = newHeight;
+
+        window.MinimumWidth = newWidth;
+        window.MinimumHeight = newHeight;
+        return window;
     }
 }
