@@ -83,8 +83,9 @@
                                           ContainerType="Outlined"
                                           ErrorText="Error"
                                           HasError="False"
-                                          Hint="Your Callsign"
-                                          WidthRequest="150">
+                                          Hint="Callsign"
+                                          Padding="0,-10,0,0"
+                                          WidthRequest="100">
                         <Entry Placeholder="Call Sign"
                                Text="{Binding Call}"
                                TextChanged="ForceUppercase"
@@ -98,6 +99,7 @@
                                           ErrorText="Error"
                                           HasError="False"
                                           Hint="Frequency"
+                                          Padding="0,-10,0,0"
                                           WidthRequest="100">
 
                         <sfInputs:SfNumericEntry CustomFormat="0.000"
@@ -109,6 +111,7 @@
 
                 <VerticalStackLayout>
                     <sf:SfTextInputLayout CharMaxLength="8"
+                                          Padding="0,-10,0,0"
                                           ContainerType="Outlined"
                                           ErrorText="Error"
                                           HasError="False"
@@ -147,17 +150,16 @@
                                           Hint="QSO Date"
                                           WidthRequest="100">
 
-                        <Entry Placeholder="Name"
+                        <Entry Focused="QslDateFocus"
                                Text="{Binding QsoDate}"
-                               Focused="QslDateFocus"
                                TextColor="Black" />
                     </sf:SfTextInputLayout>
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
-                    <sf:SfTextInputLayout 
-                                          CharMaxLength="8"
+                    <sf:SfTextInputLayout CharMaxLength="8"
                                           ContainerType="Outlined"
+                                          Padding="0,-10,0,0"
                                           ErrorText="Error"
                                           HasError="False"
                                           Hint="QSO Time"

@@ -10,6 +10,7 @@ public partial class MainPage : ContentPage
         InitializeComponent();
         qsoVm = mpvm;
         this.BindingContext = qsoVm;
+        qsoVm.StartThread();
 
     }
     private void ForceUppercase(object sender, TextChangedEventArgs e)

@@ -27,6 +27,9 @@ namespace LogGate.ViewModel
         [ObservableProperty]
         public ICollection<QsoDetail> qsoDetails = new List<QsoDetail>();
 
+        Thread? RadioThread = null;
+        
+
         public List<string> ModeList { get; set; } = new List<string>()
         {
                 "8PSK125",
@@ -150,6 +153,20 @@ namespace LogGate.ViewModel
         public void Settings()
         {
             Shell.Current.GoToAsync(nameof(SettingsPage));
+        }
+        public void StartThread()
+        {
+            if (RadioThread is not null) return;
+            RadioThread = new Thread(GetRadioInfo);
+            RadioThread.Start();
+        }
+        public void GetRadioInfo()
+        {
+            while (true)
+            {
+                Freq += 1.0m;
+                Thread.Sleep(100);
+            }
         }
     }
 }
