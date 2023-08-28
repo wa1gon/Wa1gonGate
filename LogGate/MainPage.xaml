@@ -30,7 +30,7 @@
             </Style>
 
             <Style TargetType="sf:SfTextInputLayout">
-                <Setter Property="HeightRequest" Value="75" />
+                <Setter Property="HeightRequest" Value="50" />
                 <Setter Property="BackgroundColor" Value="DarkGreen" />
             </Style>
 
@@ -76,6 +76,7 @@
             <FlexLayout Grid.Row="1"
                         Grid.ColumnSpan="2"
                         Direction="Row"
+                        VerticalOptions="Start"
                         Wrap="Wrap">
                 <VerticalStackLayout>
                     <sf:SfTextInputLayout CharMaxLength="8"
@@ -97,7 +98,7 @@
                                           ErrorText="Error"
                                           HasError="False"
                                           Hint="Frequency"
-                                          WidthRequest="150">
+                                          WidthRequest="100">
 
                         <sfInputs:SfNumericEntry CustomFormat="0.000"
                                                  Placeholder="Mode"
@@ -138,21 +139,35 @@
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
+                    <sf:SfTextInputLayout Padding="0,-10,0,0"
+                                          CharMaxLength="8"
+                                          ContainerType="Outlined"
+                                          ErrorText="Error"
+                                          HasError="False"
+                                          Hint="QSO Date"
+                                          WidthRequest="100">
 
-                    <Label Padding="10,0,0,0"
-                           Text="Select Date and Time:"
-                           TextColor="Black" />
-                    <HorizontalStackLayout>
+                        <Entry Placeholder="Name"
+                               Text="{Binding QsoDate}"
+                               Focused="QslDateFocus"
+                               TextColor="Black" />
+                    </sf:SfTextInputLayout>
+                </VerticalStackLayout>
 
-                        <!--
-                        <DatePicker x:Name="datePicker"
-                                    Date="{Binding QsoDateOnly}"
-                                    TextColor="Black" />
-                        <TimePicker x:Name="timePicker"
-                                    TextColor="Black"
-                                    Time="{Binding QsoTimeOnly}" />                        -->
+                <VerticalStackLayout>
+                    <sf:SfTextInputLayout 
+                                          CharMaxLength="8"
+                                          ContainerType="Outlined"
+                                          ErrorText="Error"
+                                          HasError="False"
+                                          Hint="QSO Time"
+                                          WidthRequest="100">
 
-                    </HorizontalStackLayout>
+                        <Entry Focused="TimeClickEvent"
+                               Text="{Binding QsoTimeOnly}"
+                               TextColor="Black" />
+
+                    </sf:SfTextInputLayout>
 
                 </VerticalStackLayout>
 

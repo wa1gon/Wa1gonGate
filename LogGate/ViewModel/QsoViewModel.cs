@@ -9,10 +9,11 @@ namespace LogGate.ViewModel
         public string call = string.Empty;
 
         [ObservableProperty]
-        public DateTime qsoDateOnly;
+        public string qsoDate = string.Empty;
 
         [ObservableProperty]
-        public DateTime qsoTimeOnly;
+        public string qsoTimeOnly = string.Empty;
+
         private string lastMode = string.Empty;
         [ObservableProperty]
         private string? name;
@@ -149,10 +150,6 @@ namespace LogGate.ViewModel
         public void Settings()
         {
             Shell.Current.GoToAsync(nameof(SettingsPage));
-            //if (Text.IsNullOrEmpty())
-            //    return;
-            //items.Add(Text);
-            //Text = string.Empty;
         }
     }
 }
