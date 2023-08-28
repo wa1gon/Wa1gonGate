@@ -73,7 +73,7 @@
                        Grid.ColumnSpan="2"
                        Placeholder="Search Contact" />
 
-            <FlexLayout Grid.Row="2"
+            <FlexLayout Grid.Row="1"
                         Grid.ColumnSpan="2"
                         Direction="Row"
                         Wrap="Wrap">
@@ -114,27 +114,12 @@
                                           Hint="Mode"
                                           WidthRequest="150">
 
-                        <sfInputs:SfAutocomplete ItemsSource="{Binding ModeList}"
-                                             HeightRequest="44" SelectedItem="{Binding Mode}"
-
-                                                 >
-
-                        </sfInputs:SfAutocomplete>
+                        <sfInputs:SfAutocomplete HeightRequest="44"
+                                                 ItemsSource="{Binding ModeList}"
+                                                 SelectedItem="{Binding Mode}" />
                     </sf:SfTextInputLayout>
 
-                    <!--
-                    <sf:SfTextInputLayout CharMaxLength="8"
-                                          ContainerType="Outlined"
-                                          ErrorText="Error"
-                                          HasError="False"
-                                          Hint="Mode"
-                                          WidthRequest="150">
 
-                        <Entry Placeholder="Mode"
-                               Text="{Binding Mode}"
-                               TextColor="Black" />
-                    </sf:SfTextInputLayout>
-                    -->
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
@@ -159,13 +144,13 @@
                            TextColor="Black" />
                     <HorizontalStackLayout>
 
+                        <!--
                         <DatePicker x:Name="datePicker"
                                     Date="{Binding QsoDateOnly}"
                                     TextColor="Black" />
                         <TimePicker x:Name="timePicker"
                                     TextColor="Black"
-                                    Time="{Binding QsoTimeOnly}" />
-
+                                    Time="{Binding QsoTimeOnly}" />                        -->
 
                     </HorizontalStackLayout>
 
