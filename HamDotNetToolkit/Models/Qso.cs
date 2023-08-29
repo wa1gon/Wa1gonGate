@@ -18,6 +18,8 @@ public class Qso
     public decimal FreqRx { get; set; } = decimal.Zero;
     public string State { get; set; } = string.Empty;
     public string County { get; set; } = string.Empty;
+    public bool BackedUp { get; set; } = false;
+    public DateTime BackupDate { get;set; }
 
 
     public virtual ICollection<QsoDetail> QsoDetails { get; set; } = new List<QsoDetail>();

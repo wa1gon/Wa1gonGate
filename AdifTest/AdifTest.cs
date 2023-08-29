@@ -95,7 +95,14 @@ namespace AdifTest
             }
 
             Assert.AreEqual(orignalAdifRecords.Count, actualAdifRecordsJ.Count);
-
+        }
+        [DataTestMethod]
+        [DataRow("20230828", "103000", "2023-08-28 10:30:00")]
+        [DataRow("20211231", "2359", "2021-12-31 23:59:00")]
+        public void ShouldCombineDateAndTime(string datePart, string timePart, string expectDateTimeString)
+        {
+            var newDtg = AdifReader.CombineDateTime(datePart, timePart);
+            Assert.AreEqual(expectDateTimeString, newDtg.ToString("yyyy-MM-dd HH:mm:ss"));
         }
     }
 }

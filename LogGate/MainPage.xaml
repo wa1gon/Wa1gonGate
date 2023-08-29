@@ -3,11 +3,12 @@
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sf="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             xmlns:sfDg="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
              xmlns:sfInputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:vm="clr-namespace:LogGate.ViewModel"
              x:DataType="vm:QsoViewModel"
-             BackgroundColor="Wheat">
+             BackgroundColor="Green">
 
     <ContentPage.BindingContext>
         <vm:QsoViewModel />
@@ -15,6 +16,12 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <sfDg:DataGridStyle x:Key="customStyle"
+                                HeaderRowBackground="Blue"
+                                HeaderRowTextColor="White"
+                                RowBackground="Bisque"
+                                RowTextColor="Black" />
+
             <Style TargetType="Picker">
                 <Setter Property="TextColor" Value="LightGray" />
                 <Setter Property="BackgroundColor" Value="DarkGreen" />
@@ -30,7 +37,7 @@
             </Style>
 
             <Style TargetType="sf:SfTextInputLayout">
-                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="HeightRequest" Value="30" />
                 <Setter Property="BackgroundColor" Value="DarkGreen" />
             </Style>
 
@@ -66,26 +73,22 @@
     <ScrollView>
         <Grid Padding="5"
               ColumnDefinitions="*,*"
-              RowDefinitions="50,*,50,50">
-            <SearchBar x:Name="Search"
-                       Grid.Row="0"
-                       Grid.Column="0"
-                       Grid.ColumnSpan="2"
-                       Placeholder="Search Contact" />
+              RowDefinitions="auto,auto,*,50">
 
-            <FlexLayout Grid.Row="1"
+
+            <FlexLayout Grid.Row="0"
                         Grid.ColumnSpan="2"
-                        Direction="Row"
+                        Direction="Row" Margin="0,0,0,20"
                         VerticalOptions="Start"
                         Wrap="Wrap">
                 <VerticalStackLayout>
-                    <sf:SfTextInputLayout CharMaxLength="8"
+                    <sf:SfTextInputLayout Padding="0,-10,0,0"
+                                          CharMaxLength="8"
                                           ContainerType="Outlined"
                                           ErrorText="Error"
-                                          HasError="False"
+                                          HeightRequest="75"
                                           Hint="Callsign"
-                                          Padding="0,-10,0,0"
-                                          WidthRequest="100">
+                                          WidthRequest="150">
                         <Entry Placeholder="Call Sign"
                                Text="{Binding Call}"
                                TextChanged="ForceUppercase"
@@ -94,12 +97,14 @@
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
-                    <sf:SfTextInputLayout CharMaxLength="8"
+                    <sf:SfTextInputLayout Padding="0,-6,0,0"
+                                          CharMaxLength="8"
                                           ContainerType="Outlined"
                                           ErrorText="Error"
                                           HasError="False"
+                                          HeightRequest="75"
                                           Hint="Frequency"
-                                          Padding="0,-10,0,0"
+                                          VerticalOptions="Center"
                                           WidthRequest="100">
 
                         <sfInputs:SfNumericEntry CustomFormat="0.000"
@@ -110,11 +115,12 @@
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
-                    <sf:SfTextInputLayout CharMaxLength="8"
-                                          Padding="0,-10,0,0"
+                    <sf:SfTextInputLayout Padding="0,-6,0,0"
+                                          CharMaxLength="8"
                                           ContainerType="Outlined"
                                           ErrorText="Error"
                                           HasError="False"
+                                          HeightRequest="75"
                                           Hint="Mode"
                                           WidthRequest="150">
 
@@ -126,20 +132,7 @@
 
                 </VerticalStackLayout>
 
-                <VerticalStackLayout>
-                    <sf:SfTextInputLayout Padding="0,-10,0,0"
-                                          CharMaxLength="8"
-                                          ContainerType="Outlined"
-                                          ErrorText="Error"
-                                          HasError="False"
-                                          Hint="Name"
-                                          WidthRequest="200">
 
-                        <Entry Placeholder="Name"
-                               Text="{Binding Name}"
-                               TextColor="Black" />
-                    </sf:SfTextInputLayout>
-                </VerticalStackLayout>
 
                 <VerticalStackLayout>
                     <sf:SfTextInputLayout Padding="0,-10,0,0"
@@ -147,6 +140,7 @@
                                           ContainerType="Outlined"
                                           ErrorText="Error"
                                           HasError="False"
+                                          HeightRequest="75"
                                           Hint="QSO Date"
                                           WidthRequest="100">
 
@@ -157,11 +151,12 @@
                 </VerticalStackLayout>
 
                 <VerticalStackLayout>
-                    <sf:SfTextInputLayout CharMaxLength="8"
+                    <sf:SfTextInputLayout Padding="0,-10,0,0"
+                                          CharMaxLength="8"
                                           ContainerType="Outlined"
-                                          Padding="0,-10,0,0"
                                           ErrorText="Error"
                                           HasError="False"
+                                          HeightRequest="75"
                                           Hint="QSO Time"
                                           WidthRequest="100">
 
@@ -172,19 +167,79 @@
                     </sf:SfTextInputLayout>
 
                 </VerticalStackLayout>
+                <VerticalStackLayout>
+                    <sf:SfTextInputLayout Padding="0,-10,0,0"
+                                          CharMaxLength="8"
+                                          ContainerType="Outlined"
+                                          ErrorText="Error"
+                                          HasError="False"
+                                          HeightRequest="75"
+                                          Hint="Name"
+                                          WidthRequest="200">
+
+                        <Entry Placeholder="Name"
+                               Text="{Binding Name}"
+                               TextColor="Black" />
+                    </sf:SfTextInputLayout>
+                </VerticalStackLayout>
 
             </FlexLayout>
 
+            <VerticalStackLayout Grid.Row="1"
+                                 Grid.Column="0"
+                                 Grid.ColumnSpan="1" Margin="5,0,0,0"
+                                 VerticalOptions="Start">
+                <SearchBar x:Name="Search"
+                           Placeholder="Search Contact"
+                           TextColor="Black" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Margin="0,10,0,0"
+                                 Padding="50,0,0,0"
+                                 Grid.Row="2"
+                                 Grid.ColumnSpan="2"
+                                 HorizontalOptions="Start">
+                <sfDg:SfDataGrid 
+                                 AllowEditing="True"
+                                 AutoGenerateColumnsMode="None"
+                                 DefaultStyle="{StaticResource customStyle}"
+                                 ItemsSource="{Binding Qsos}"
+                                 SortingMode="Single"
+                                 WidthRequest="800">
+                    <sfDg:SfDataGrid.Columns>
+                        <sfDg:DataGridDateColumn Width="180"
+                                                 HeaderText="QSO Date"
+                                                 Format="dd/MM/yyyy HH:mm"
+                                                 MappingName="QsoDate" />
+                        <sfDg:DataGridTextColumn HeaderText="Call" MappingName="Call" />
+                        
+                        <sfDg:DataGridTextColumn Format="0.000"
+                                                 HeaderText="Freq"
+                                                 Width="80"
+                                                 MappingName="Freq" />
+                        
+                        <sfDg:DataGridDateColumn Width="130"
+                                                 HeaderText="Mode"
+                                                 MappingName="Mode" />
+
+
+                        <sfDg:DataGridTextColumn HeaderText="RST Rcvd" MappingName="RstRcvd" />
+                        <sfDg:DataGridTextColumn HeaderText="RST Sent" MappingName="RstSent" />
+                        <sfDg:DataGridTextColumn HeaderText="State" MappingName="State" />
+                    </sfDg:SfDataGrid.Columns>
+
+                </sfDg:SfDataGrid>
+            </VerticalStackLayout>
 
             <Button x:Name="btnAdd"
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Grid.Column="0"
                     Margin="5"
                     Command="{x:Binding AddCommand}"
                     Text="Add QSO" />
 
             <Button x:Name="btnSettings"
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Grid.Column="1"
                     Margin="5"
                     Command="{x:Binding SettingsCommand}"
