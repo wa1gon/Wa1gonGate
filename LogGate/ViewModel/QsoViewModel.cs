@@ -17,7 +17,7 @@ namespace LogGate.ViewModel
 
         private string lastMode = string.Empty;
         [ObservableProperty]
-        private string? name;
+        private string? name = string.Empty;
 
         [ObservableProperty]
         public string mode = string.Empty;
@@ -144,6 +144,7 @@ namespace LogGate.ViewModel
                 entry.Text = e.NewTextValue?.ToUpper();
             }
         }
+
         [RelayCommand]
         public void Add()
         {
@@ -153,11 +154,13 @@ namespace LogGate.ViewModel
             //items.Add(Text);
             //Text = string.Empty;
         }
+
         [RelayCommand]
         public void Settings()
         {
             Shell.Current.GoToAsync(nameof(SettingsPage));
         }
+
         public void StartThread()
         {
             if (RadioThread is not null) return;
