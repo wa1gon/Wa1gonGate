@@ -212,10 +212,12 @@
                                                  Format="dd/MM/yyyy HH:mm"
                                                  MappingName="QsoDate" />
                         <sfDg:DataGridTextColumn HeaderText="Call" MappingName="Call" />
+                        
                         <sfDg:DataGridTextColumn Format="0.000"
                                                  HeaderText="Freq"
                                                  Width="80"
                                                  MappingName="Freq" />
+                        
                         <sfDg:DataGridDateColumn Width="130"
                                                  HeaderText="Mode"
                                                  MappingName="Mode" />

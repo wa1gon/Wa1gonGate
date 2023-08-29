@@ -110,7 +110,8 @@ namespace AdifLib
         {
             Dictionary<string, string> header = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
             List<Qso> qsoList = new List<Qso>();
-
+            string? timeOn = string.Empty;
+            string? dateOn = string.Empty;
             try
             {
                 using (StreamReader? reader = new StreamReader(filePath))
@@ -172,10 +173,14 @@ namespace AdifLib
                                         }
                                         else
                                         {
+                                            #region
                                             if (currentQso is null) continue;
 
                                             if (tag.Equals("QSO_DATE", StringComparison.OrdinalIgnoreCase))
-                                                currentQso.QsoDate = DateTime.ParseExact(value, "yyyyMMdd", null);
+                                                dateOn = value;
+                                            //currentQso.QsoDate = DateTime.ParseExact(value, "yyyyMMdd", null);
+                                            else if (tag.Equals("time_on", StringComparison.OrdinalIgnoreCase))
+                                                timeOn = value;
 
                                             else if (tag.Equals("CALL", StringComparison.OrdinalIgnoreCase))
                                                 currentQso.Call = value;
@@ -227,6 +232,8 @@ namespace AdifLib
                                                 //currentQso.QsoDetails[tag] = value;
                                                 currentQso.QsoDetails.Add(new QsoDetail() { Name = tag, Value = value });
                                             }
+                                            #endregion
+                                            currentQso.QsoDate = CombineDateTime(dateOn, timeOn);
                                         }
 
                                         // Move to the next tag-value pair in the line
@@ -260,6 +267,51 @@ namespace AdifLib
             }
 
             return (header, qsoList);
+        }
+
+
+
+        public static DateTime CombineDateTime(string datePart, string timePart)
+        {
+
+
+            //if (datePart.Length != 8 || (timePart.Length != 4 && timePart.Length != 6))
+            if (datePart.Length != 8 )
+            {
+                return DateTime.MinValue; 
+            }
+
+
+            int hour = 0;
+            int minute = 0;
+            int second = 0;
+
+            int year = int.Parse(datePart.Substring(0, 4));
+            int month = int.Parse(datePart.Substring(4, 2));
+            int day = int.Parse(datePart.Substring(6, 2));
+
+            if (timePart.IsNullOrEmpty() == false && (timePart.Length != 6 || timePart.Length != 4))
+            {
+                hour = int.Parse(timePart.Substring(0, 2));
+                minute = int.Parse(timePart.Substring(2, 2));
+            }
+
+            if (timePart.IsNullOrEmpty() == false && timePart.Length == 6)
+            {
+                second = int.Parse(timePart.Substring(4, 2));
+            }
+
+            DateTime combinedDateTime = new DateTime(
+                year,
+                month,
+                day,
+                hour,
+                minute,
+                second,
+                DateTimeKind.Utc
+            );
+
+            return combinedDateTime;
         }
     }
 }

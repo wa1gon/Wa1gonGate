@@ -35,7 +35,7 @@ namespace AdifLib
                         }
                         writer.WriteLine($"<id:{qso.Id.Length}>{qso.Id}");
                         writer.WriteLine($"<qso_date:{qso.QsoDate.ToString("yyyyMMdd").Length}>{qso.QsoDate.ToString("yyyyMMdd")}");
-
+                        writer.WriteLine($"<time_on:{qso.QsoDate.ToString("HHmmss").Length}>{qso.QsoDate.ToString("HHmmss")}");
                         writer.WriteLine($"<call:{qso.Call.Length}>{qso.Call}");
                         writer.WriteLine($"<name:{qso.Name.Length}>{qso.Name}");
                         writer.WriteLine($"<mode:{qso.Mode.Length}>{qso.Mode}");
