@@ -229,7 +229,7 @@ namespace AdifLib
                                             }
                                             else
                                             {
-                                                //currentQso.QsoDetails[tag] = value;
+
                                                 currentQso.QsoDetails.Add(new QsoDetail() { Name = tag, Value = value });
                                             }
                                             #endregion
