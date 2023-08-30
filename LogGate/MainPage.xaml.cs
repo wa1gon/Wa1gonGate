@@ -18,6 +18,12 @@ public partial class MainPage : ContentPage
         qsoVm.GetAllQsos();
 
     }
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
+        foreach (var item in MenuBarItems)
+            item.BindingContext = BindingContext;
+    }
     private void ForceUppercase(object sender, TextChangedEventArgs e)
     {
         if (sender is Entry entry)
