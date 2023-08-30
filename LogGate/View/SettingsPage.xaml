@@ -8,7 +8,7 @@
              xmlns:vm="clr-namespace:LogGate.ViewModel"
              Title="Settings"
              x:DataType="vm:SettingsViewModel"
-             BackgroundColor="Wheat">
+             BackgroundColor="Green">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -36,9 +36,11 @@
               RowDefinitions="auto,80,80,80,*,50">
 
 
-            <VerticalStackLayout Margin="10,10,0,0" Grid.Row="0"
+            <VerticalStackLayout Grid.Row="0"
+                                 Margin="10,10,0,0"
                                  Padding="0,0,0,10"
-                                 VerticalOptions="Start" HorizontalOptions="Start">
+                                 HorizontalOptions="Start"
+                                 VerticalOptions="Start">
                 <sf:SfTextInputLayout CharMaxLength="8"
                                       ContainerType="Outlined"
                                       ErrorText="Error"
@@ -55,49 +57,50 @@
             </VerticalStackLayout>
 
 
+            <Border Grid.Row="1" WidthRequest="500" HeightRequest="480" BackgroundColor="Wheat" >
+                <HorizontalStackLayout VerticalOptions="Start" Margin="0,0,0,0">
+                    <sf:SfTextInputLayout Margin="10,20,0,40"
+                                          ContainerType="Outlined"
+                                          HeightRequest="80"
+                                          Hint="Longitude"
+                                          VerticalOptions="Center"
+                                          WidthRequest="100">
+                        <Entry Placeholder="Longitude"
+                               Text="{Binding Longitude}"
+                               TextChanged="OnNumericEntryTextChanged"
+                               TextColor="Black" />
+                    </sf:SfTextInputLayout>
 
-            <HorizontalStackLayout Grid.Row="1" VerticalOptions="Start">
-                <sf:SfTextInputLayout Margin="10,20,0,40"
-                                      ContainerType="Outlined"
-                                      HeightRequest="80"
-                                      Hint="Longitude"
-                                      VerticalOptions="Center"
-                                      WidthRequest="100">
-                    <Entry Placeholder="Longitude"
-                           Text="{Binding Longitude}"
-                           TextChanged="OnNumericEntryTextChanged"
-                           TextColor="Black" />
-                </sf:SfTextInputLayout>
-
-                <sf:SfTextInputLayout Margin="10,20,0,40"
-                                      ContainerType="Outlined"
-                                      HeightRequest="80"
-                                      Hint="Latitude"
-                                      VerticalOptions="Center"
-                                      WidthRequest="100">
-                    <Entry Placeholder="Latitude"
-                           Text="{Binding Latitude}"
-                           TextChanged="OnNumericEntryTextChanged"
-                           TextColor="Black" />
-                </sf:SfTextInputLayout>
-
-
-                <sf:SfTextInputLayout Margin="10,20,0,40"
-                                      ContainerType="Outlined"
-                                      HeightRequest="80"
-                                      Hint="Grid Square"
-                                      VerticalOptions="Center"
-                                      WidthRequest="100">
-                    <Entry BackgroundColor="Green"
-                           Placeholder="Grid Square"
-                           Text="{Binding GridSquare}"
-                           TextColor="Black" />
-                </sf:SfTextInputLayout>
-
-            </HorizontalStackLayout>
+                    <sf:SfTextInputLayout Margin="10,20,0,40"
+                                          ContainerType="Outlined"
+                                          HeightRequest="80"
+                                          Hint="Latitude"
+                                          VerticalOptions="Center"
+                                          WidthRequest="100">
+                        <Entry Placeholder="Latitude"
+                               Text="{Binding Latitude}"
+                               TextChanged="OnNumericEntryTextChanged"
+                               TextColor="Black" />
+                    </sf:SfTextInputLayout>
 
 
-            <VerticalStackLayout Grid.Row="2" VerticalOptions="Start" >
+                    <sf:SfTextInputLayout Margin="10,20,0,40"
+                                          ContainerType="Outlined"
+                                          HeightRequest="80"
+                                          Hint="Grid Square"
+                                          VerticalOptions="Center"
+                                          WidthRequest="100">
+                        <Entry BackgroundColor="Green"
+                               Placeholder="Grid Square"
+                               Text="{Binding GridSquare}"
+                               TextColor="Black" />
+                    </sf:SfTextInputLayout>
+
+                </HorizontalStackLayout>
+            </Border>
+
+
+            <VerticalStackLayout Grid.Row="2" VerticalOptions="Start">
 
                 <VerticalStackLayout Padding="5"
                                      HorizontalOptions="Start"
@@ -126,9 +129,10 @@
                                      Padding="5"
                                      HorizontalOptions="Start"
                                      VerticalOptions="Start">
-                    <sf:SfTextInputLayout Margin="0,20,0,40" WidthRequest="300"
+                    <sf:SfTextInputLayout Margin="0,20,0,40"
                                           ContainerType="Outlined"
-                                          Hint="Database Connection String">
+                                          Hint="Database Connection String"
+                                          WidthRequest="300">
                         <Entry Placeholder="Connections String"
                                Text="{Binding ConnectionString}"
                                TextColor="Black" />
