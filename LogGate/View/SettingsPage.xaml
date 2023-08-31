@@ -200,12 +200,13 @@
                                                      DropDownIconColor="Green"
                                                      HeightRequest="36"
                                                      IsEditable="False"
+                                                     Margin="-61,0,0,0"
                                                      ItemsSource="{Binding DbOptionType}"
                                                      Placeholder="Select Database type"
                                                      PlaceholderColor="DarkGray"
                                                      SelectedIndex="0"
                                                      SelectedItem="{Binding DbType}"
-                                                     WidthRequest="300" />
+                                                     WidthRequest="230" />
                             </sf:SfTextInputLayout>
 
                         </VerticalStackLayout>

@@ -8,17 +8,13 @@
                              Spacing="25"
                              VerticalOptions="Center">
 
-            <Image HeightRequest="200"
-                   HorizontalOptions="Center"
-                   SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                   Source="dotnet_bot.png" />
             <Border Padding="30,20"
                     Background="LightGray"
                     HorizontalOptions="Center"
-                    Stroke="Black"
+                    Stroke="Red"
                     StrokeThickness="2">
                 <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="0,20,20,0" />
+                    <RoundRectangle CornerRadius="0,20,20,20" />
                 </Border.StrokeShape>
                 <Border.Shadow>
                     <Shadow Brush="Black"
@@ -36,6 +32,18 @@
                        FontSize="15"
                        Text="Welcome to.NET MAUI2"
                        TextColor="Black" />
+
+                    <Label FontSize="18"
+                   HorizontalOptions="Center"
+                   SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                   SemanticProperties.HeadingLevel="Level2"
+                   Text="Welcome to .NET Multi-platform App UI" />
+
+                    <Button x:Name="CounterBtn"
+                    Clicked="OnCounterClicked"
+                    HorizontalOptions="Center"
+                    SemanticProperties.Hint="Counts the number of times you click"
+                    Text="Click me" />
                 </VerticalStackLayout>
             </Border>
             <Label FontSize="32"
@@ -43,17 +51,6 @@
                    SemanticProperties.HeadingLevel="Level1"
                    Text="Hello, World!" />
 
-            <Label FontSize="18"
-                   HorizontalOptions="Center"
-                   SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                   SemanticProperties.HeadingLevel="Level2"
-                   Text="Welcome to .NET Multi-platform App UI" />
-
-            <Button x:Name="CounterBtn"
-                    Clicked="OnCounterClicked"
-                    HorizontalOptions="Center"
-                    SemanticProperties.Hint="Counts the number of times you click"
-                    Text="Click me" />
 
         </VerticalStackLayout>
     </ScrollView>
