@@ -87,6 +87,10 @@ public class SettingManager
     {
         settings[key] = value.ToString();
     }
+    public void SetSetting(string key, double value)
+    {
+        settings[key] = value.ToString();
+    }
     public void SetSetting(string key, int value)
     {
         settings[key] = value.ToString();

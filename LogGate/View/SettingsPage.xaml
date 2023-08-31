@@ -35,33 +35,79 @@
               ColumnSpacing="10"
               RowDefinitions="auto,auto,130,80,*,70">
 
+            <Border Grid.Row="0"
+                    Grid.ColumnSpan="4"
+                    Margin="12,20,0,20"
+                    Padding="0,3,0,0"
+                    BackgroundColor="Wheat"
+                    HeightRequest="120"
+                    HorizontalOptions="Start"
+                    Stroke="Wheat"
+                    StrokeThickness="3"
+                    WidthRequest="450">
 
-            <VerticalStackLayout Grid.Row="0"
-                                 Margin="10,10,0,0"
-                                 Padding="0,0,0,10"
-                                 HorizontalOptions="Start"
-                                 VerticalOptions="Start">
-                <sf:SfTextInputLayout CharMaxLength="8"
-                                      ContainerType="Outlined"
-                                      ErrorText="Error"
-                                      HasError="False"
-                                      Hint="Your Callsign"
-                                      WidthRequest="150">
-                    <Entry BackgroundColor="Green"
-                           Placeholder="Callsign"
-                           Text="{Binding Callsign}"
-                           TextChanged="ForceUppercase"
-                           TextColor="Black" />
-                </sf:SfTextInputLayout>
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20,20,20,20" />
+                </Border.StrokeShape>
+                <VerticalStackLayout>
+                    <Label Margin="0,0,0,0"
+                           BackgroundColor="Black"
+                           HorizontalOptions="Center"
+                           Text="   Local Information " />
+                    <HorizontalStackLayout Margin="10,10,0,0"
+                                           Padding="0,0,0,10"
+                                           HorizontalOptions="Start"
+                                           VerticalOptions="Center">
+                        <sf:SfTextInputLayout Margin="0,0,25,0"
+                                              CharMaxLength="8"
+                                              ContainerType="Outlined"
+                                              ErrorText="Error"
+                                              HasError="False"
+                                              Hint="Your Callsign"
+                                              WidthRequest="150">
+                            <Entry BackgroundColor="Green"
+                                   Placeholder="Callsign"
+                                   Text="{Binding Callsign}"
+                                   TextChanged="ForceUppercase"
+                                   TextColor="Black" />
+                        </sf:SfTextInputLayout>
 
-            </VerticalStackLayout>
+                        <sf:SfTextInputLayout Margin="0,0,25,0"
+                                              CharMaxLength="8"
+                                              ContainerType="Outlined"
+                                              ErrorText="Error"
+                                              HasError="False"
+                                              Hint="Form Width"
+                                              WidthRequest="100">
+                            <Entry BackgroundColor="Green"
+                                   Placeholder="Form Width"
+                                   Text="{Binding FormWidth}"
+                                   TextChanged="ForceUppercase"
+                                   TextColor="Black" />
+                        </sf:SfTextInputLayout>
 
+                        <sf:SfTextInputLayout CharMaxLength="8"
+                                              ContainerType="Outlined"
+                                              ErrorText="Error"
+                                              HasError="False"
+                                              Hint="Form Height"
+                                              WidthRequest="100">
+                            <Entry BackgroundColor="Green"
+                                   Placeholder="Form Height"
+                                   Text="{Binding FormHeight}"
+                                   TextChanged="ForceUppercase"
+                                   TextColor="Black" />
+                        </sf:SfTextInputLayout>
+
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
 
             <Border Grid.Row="1"
                     Margin="12,0,0,0"
                     Padding="10,10,10,10"
                     BackgroundColor="Wheat"
-                    HeightRequest="150"
+                    HeightRequest="120"
                     HorizontalOptions="Start"
                     VerticalOptions="Start"
                     WidthRequest="350">
@@ -120,7 +166,7 @@
                     Margin="12,0,0,0"
                     Padding="0,3,0,0"
                     BackgroundColor="Wheat"
-                    HeightRequest="150"
+                    HeightRequest="120"
                     HorizontalOptions="Start"
                     Stroke="Wheat"
                     StrokeThickness="3"
@@ -184,15 +230,17 @@
                 </VerticalStackLayout>
             </Border>
 
-            <Grid Grid.Row="5" ColumnDefinitions="*,*" Grid.Column="0" Grid.ColumnSpan="5">
+            <Grid Grid.Row="5"
+                  Grid.Column="0"
+                  Grid.ColumnSpan="5"
+                  ColumnDefinitions="*,*">
                 <Button x:Name="saveBtn"
                         Grid.Column="0"
-
                         Margin="0,0,0,10"
                         Command="{x:Binding SaveCommand}"
                         HorizontalOptions="Center"
                         Text="Save" />
-                <Button x:Name="btnAdd" 
+                <Button x:Name="btnAdd"
                         Grid.Column="1"
                         Margin="0,0,0,10"
                         Command="{x:Binding CloseCommand}"

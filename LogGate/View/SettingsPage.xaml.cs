@@ -1,15 +1,18 @@
-using LogGate.ViewModel;
 using System.Text.RegularExpressions;
 
 namespace LogGate.View;
 
 public partial class SettingsPage : ContentPage
 {
-    public SettingsPage(SettingsViewModel vm)
+    public SettingsPage(SettingsViewModel vm, MainPage main)
     {
         InitializeComponent();
         BindingContext = vm;
         var foo = DeviceInfo.Platform;
+        if (vm.FormWidth < 100)
+            vm.FormWidth = main.Width;
+        if (vm.FormHeight < 100)
+            vm.FormHeight = main.Height;
     }
 
     private void ForceUppercase(object sender, TextChangedEventArgs e)
