@@ -67,11 +67,11 @@ namespace AdifLib
                 if (qso.RstSent.Length > 0)
                     writer.WriteLine($"<rst_sent:{qso.RstSent.Length}>{qso.RstSent}");
 
-                if (qso.QSLRcvd.Length > 0)
-                    writer.WriteLine($"<qsl_rcvd:{qso.QSLRcvd.Length}>{qso.QSLRcvd}");
+                //if (qso.QSLRcvd.Length > 0)
+                //    writer.WriteLine($"<qsl_rcvd:{qso.QSLRcvd.Length}>{qso.QSLRcvd}");
 
-                if (qso.QSLSent.Length > 0)
-                    writer.WriteLine($"<qsl_sent:{qso.QSLSent.Length}>{qso.QSLSent}");
+                //if (qso.QSLSent.Length > 0)
+                //    writer.WriteLine($"<qsl_sent:{qso.QSLSent.Length}>{qso.QSLSent}");
 
                 if (qso.Freq > 0)
                     writer.WriteLine($"<freq:{qso.Freq.ToString().Length}>{qso.Freq.ToString()}");
@@ -117,8 +117,8 @@ namespace AdifLib
 
                         { "RST_RCVD", qso.RstRcvd },
                         { "RST_SENT", qso.RstSent },
-                        { "QSL_SENT", qso.QSLSent },
-                        { "QSL_RCVD", qso.QSLRcvd },
+                        //{ "QSL_SENT", qso.QSLSent },
+                        //{ "QSL_RCVD", qso.QSLRcvd },
                         { "FREQ", qso.Freq.ToString() },
                         { "FREQ_RX", qso.FreqRx.ToString() },
                         { "STATE", qso.State },

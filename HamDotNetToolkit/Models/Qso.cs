@@ -12,17 +12,21 @@ public class Qso
     public string Name { get; set; } = string.Empty;
     public string RstSent { get; set; } = string.Empty;
     public string RstRcvd { get; set; } = string.Empty;
-    public string QSLSent { get; set; } = string.Empty;
-    public string QSLRcvd { get; set; } = string.Empty;
+    
     public decimal Freq { get; set; } = decimal.Zero;
     public decimal FreqRx { get; set; } = decimal.Zero;
     public string State { get; set; } = string.Empty;
     public string County { get; set; } = string.Empty;
     public bool BackedUp { get; set; } = false;
     public DateTime BackupDate { get;set; }
+    public DateTime LastUpdate { get;set; }
 
 
     public virtual ICollection<QsoDetail> QsoDetails { get; set; } = new List<QsoDetail>();
+    public virtual ICollection<AwardsQSO> AwardsQSOs { get; set; } = new List<AwardsQSO>();
+    public virtual ICollection<ExternalLogbooks> ExternalLogbooks { get; set; } = new List<ExternalLogbooks>();
+    public virtual ICollection<ContestQsoInfo> ContestQsoInfos { get; set; } = new List<ContestQsoInfo>();
+
     public override string ToString()
     {
         return $"{Call}: {QsoDate} - {Name}  {Mode}";

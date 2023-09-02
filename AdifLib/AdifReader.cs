@@ -52,7 +52,7 @@ namespace AdifLib
                         qso.RstSent = rstSent;
 
                     if (record.TryGetValue("RST_RCVD", out string? rstRcvd))
-                        qso.QSLRcvd = rstRcvd;
+                        qso.RstRcvd = rstRcvd;
 
                     if (record.TryGetValue("FREQ", out string? freq))
                         qso.Freq = Decimal.Parse(freq);
@@ -198,13 +198,13 @@ namespace AdifLib
 
                                                 currentQso.RstRcvd = value;
 
-                                            else if (tag.Equals("QSL_Sent", StringComparison.OrdinalIgnoreCase))
+                                            //else if (tag.Equals("QSL_Sent", StringComparison.OrdinalIgnoreCase))
 
-                                                currentQso.QSLSent = value;
+                                            //    currentQso.QSLSent = value;
 
-                                            else if (tag.Equals("QSL_Rcvd", StringComparison.OrdinalIgnoreCase))
+                                            //else if (tag.Equals("QSL_Rcvd", StringComparison.OrdinalIgnoreCase))
 
-                                                currentQso.QSLRcvd = value;
+                                            //    currentQso.QSLRcvd = value;
 
                                             else if (tag.Equals("Freq", StringComparison.OrdinalIgnoreCase))
 
@@ -315,15 +315,3 @@ namespace AdifLib
         }
     }
 }
-
-
-
-
-
-//////////////////////////
-
-
-
-
-
-

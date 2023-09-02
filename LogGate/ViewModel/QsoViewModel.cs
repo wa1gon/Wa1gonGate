@@ -159,6 +159,8 @@ namespace LogGate.ViewModel
         public void Settings()
         {
             Shell.Current.GoToAsync(nameof(SettingsPage));
+            //var settingsWindows = new Window { Page = new SettingsPage() };
+            //Application
         }
 
         public void StartThread()
