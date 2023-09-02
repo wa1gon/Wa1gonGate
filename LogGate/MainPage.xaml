@@ -7,6 +7,7 @@
              xmlns:sfInputs="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              xmlns:vm="clr-namespace:LogGate.ViewModel"
+
              x:DataType="vm:QsoViewModel"
              BackgroundColor="Green">
 
@@ -73,12 +74,13 @@
     <ScrollView>
         <Grid Padding="5"
               ColumnDefinitions="*,*"
-              RowDefinitions="auto,auto,*,50">
+              RowDefinitions="auto,auto,*">
 
 
             <FlexLayout Grid.Row="0"
                         Grid.ColumnSpan="2"
-                        Direction="Row" Margin="0,0,0,20"
+                        Margin="0,0,0,20"
+                        Direction="Row"
                         VerticalOptions="Start"
                         Wrap="Wrap">
                 <VerticalStackLayout>
@@ -187,20 +189,20 @@
 
             <VerticalStackLayout Grid.Row="1"
                                  Grid.Column="0"
-                                 Grid.ColumnSpan="1" Margin="5,0,0,0"
+                                 Grid.ColumnSpan="1"
+                                 Margin="5,0,0,0"
                                  VerticalOptions="Start">
                 <SearchBar x:Name="Search"
-                           Placeholder="Search Contact"
-                           TextColor="Black" />
+                           Placeholder="Search Contact" 
+                           TextColor="Black" BackgroundColor="White" CancelButtonColor="Black"/>
             </VerticalStackLayout>
 
-            <VerticalStackLayout Margin="0,10,0,0"
-                                 Padding="50,0,0,0"
-                                 Grid.Row="2"
+            <VerticalStackLayout Grid.Row="2"
                                  Grid.ColumnSpan="2"
+                                 Margin="0,10,0,0"
+                                 Padding="50,0,0,0"
                                  HorizontalOptions="Start">
-                <sfDg:SfDataGrid 
-                                 AllowEditing="True"
+                <sfDg:SfDataGrid AllowEditing="True"
                                  AutoGenerateColumnsMode="None"
                                  DefaultStyle="{StaticResource customStyle}"
                                  ItemsSource="{Binding Qsos}"
@@ -208,16 +210,16 @@
                                  WidthRequest="800">
                     <sfDg:SfDataGrid.Columns>
                         <sfDg:DataGridDateColumn Width="180"
-                                                 HeaderText="QSO Date"
                                                  Format="dd/MM/yyyy HH:mm"
+                                                 HeaderText="QSO Date"
                                                  MappingName="QsoDate" />
                         <sfDg:DataGridTextColumn HeaderText="Call" MappingName="Call" />
-                        
-                        <sfDg:DataGridTextColumn Format="0.000"
+
+                        <sfDg:DataGridTextColumn Width="80"
+                                                 Format="0.000"
                                                  HeaderText="Freq"
-                                                 Width="80"
                                                  MappingName="Freq" />
-                        
+
                         <sfDg:DataGridDateColumn Width="130"
                                                  HeaderText="Mode"
                                                  MappingName="Mode" />
@@ -230,7 +232,7 @@
 
                 </sfDg:SfDataGrid>
             </VerticalStackLayout>
-
+            <!--
             <Button x:Name="btnAdd"
                     Grid.Row="3"
                     Grid.Column="0"
@@ -244,6 +246,7 @@
                     Margin="5"
                     Command="{x:Binding SettingsCommand}"
                     Text="Settings" />
+            -->
         </Grid>
     </ScrollView>
 

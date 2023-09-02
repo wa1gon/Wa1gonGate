@@ -28,8 +28,8 @@ public partial class App : Application
     {
         var window = base.CreateWindow(activationState);
 
-        const int newWidth = 900;
-        const int newHeight = 800;
+        double newWidth = sm.GetSetting(SettingManager.FormWidth).ParseOrDefault<double>();
+        double newHeight = sm.GetSetting(SettingManager.FormHeight).ParseOrDefault<double>();
 
         window.X = 100;
         window.Y = 200;

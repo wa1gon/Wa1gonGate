@@ -33,9 +33,9 @@ public partial class SettingsViewModel : ObservableObject
     [ObservableProperty]
     public string _operator = string.Empty;
     [ObservableProperty]
-    public int formWidth;
+    public double formWidth;
     [ObservableProperty]
-    public int formHight;
+    public double formHeight;
     [ObservableProperty]
     public string rigCtldAddress;
     [ObservableProperty]
@@ -88,7 +88,7 @@ public partial class SettingsViewModel : ObservableObject
             Callsign = settingManager.GetSetting(nameof(Callsign));
             //DbSelection = settingManager.GetSetting(nameof(DatabaseType));
             var dbtype =settingManager.GetSetting(nameof(DatabaseType));
-            dbType = DbOptionType.FirstOrDefault(x => x.Value == dbtype);
+            DbType = DbOptionType.FirstOrDefault(x => x.Value == dbtype);
             ConnectionString = settingManager.GetSetting(nameof(ConnectionString));
             County = settingManager.GetSetting(nameof(County));
             State = settingManager.GetSetting(nameof(State));
@@ -97,6 +97,8 @@ public partial class SettingsViewModel : ObservableObject
             TelnetHost = settingManager.GetSetting(nameof(TelnetHost));
             TelnetPort = settingManager.GetSetting(nameof(TelnetPort)).ParseOrDefault<int>();
             LoginCommand = settingManager.GetSetting(nameof(LoginCommand));
+            FormWidth = settingManager.GetSetting(nameof(FormWidth)).ParseOrDefault<double>();
+            FormHeight = settingManager.GetSetting(nameof(FormHeight)).ParseOrDefault<double>();
 
 
             ConnectionString = settingManager.GetSetting(nameof(ConnectionString));
@@ -134,7 +136,7 @@ public partial class SettingsViewModel : ObservableObject
             settingManager.SetSetting(nameof(TelnetPort), TelnetPort);
             settingManager.SetSetting(nameof(LoginCommand), LoginCommand);
             settingManager.SetSetting(nameof(Operator), Operator);
-            settingManager.SetSetting(nameof(FormHight), FormHight);
+            settingManager.SetSetting(nameof(FormHeight), FormHeight);
             settingManager.SetSetting(nameof(FormWidth), FormWidth);
             settingManager.SetSetting(nameof(RigCtldAddress), RigCtldAddress);
             settingManager.SetSetting(nameof(RigCtldPort), RigCtldPort);

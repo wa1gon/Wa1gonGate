@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="ViewCardDemo.MainPage"
+             xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30,0"
+                             Spacing="25"
+                             VerticalOptions="Center">
+
+            <Border Padding="30,20"
+                    Background="LightGray"
+                    HorizontalOptions="Center"
+                    Stroke="Red"
+                    StrokeThickness="2">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="0,20,20,20" />
+                </Border.StrokeShape>
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                            Opacity="0.8"
+                            Radius="20"
+                            Offset="10,10" />
+                </Border.Shadow>
+                <VerticalStackLayout>
+                <Label FontAttributes="Bold"
+                       FontSize="15"
+                       Text="Welcome to.NET MAUI"
+                       TextColor="Black" />
+
+                <Label FontAttributes="Bold"
+                       FontSize="15"
+                       Text="Welcome to.NET MAUI2"
+                       TextColor="Black" />
+
+                    <Label FontSize="18"
+                   HorizontalOptions="Center"
+                   SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                   SemanticProperties.HeadingLevel="Level2"
+                   Text="Welcome to .NET Multi-platform App UI" />
+
+                    <Button x:Name="CounterBtn"
+                    Clicked="OnCounterClicked"
+                    HorizontalOptions="Center"
+                    SemanticProperties.Hint="Counts the number of times you click"
+                    Text="Click me" />
+                </VerticalStackLayout>
+            </Border>
+            <Label FontSize="32"
+                   HorizontalOptions="Center"
+                   SemanticProperties.HeadingLevel="Level1"
+                   Text="Hello, World!" />
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

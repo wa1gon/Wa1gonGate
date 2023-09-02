@@ -61,6 +61,13 @@ public static class CommonExtMethods
                 return (T)(object)parsedValue;
             }
         }
+        else if (typeof(T) == typeof(double))
+        {
+            if (double.TryParse(input, out double parsedValue))
+            {
+                return (T)(object)parsedValue;
+            }
+        }
 
         return default;
     }
