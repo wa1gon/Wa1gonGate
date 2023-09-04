@@ -46,8 +46,6 @@ namespace AdifTest
             // Assert
             Assert.AreEqual(54121, actualAdifRecords.Count);
 
-
-
             AdifWriter.WriteAdifToFile(TestOutFilePath, actualAdifRecords);
 
             (Dictionary<string, string> header2, List<Qso> actualAdifRecords2) = AdifReader.ReadAdifFromFile(TestFilePath);
