@@ -14,12 +14,12 @@ public class Qso
     public string RstRcvd { get; set; } = string.Empty;
     
     public decimal Freq { get; set; } = decimal.Zero;
-    public decimal FreqRx { get; set; } = decimal.Zero;
     public string State { get; set; } = string.Empty;
     public string County { get; set; } = string.Empty;
     public bool BackedUp { get; set; } = false;
     public DateTime BackupDate { get;set; }
     public DateTime LastUpdate { get;set; }
+    public string 
 
 
     public virtual ICollection<QsoDetail> QsoDetails { get; set; } = new List<QsoDetail>();
@@ -34,7 +34,7 @@ public class Qso
     public string GetSHA256Hash()
     {
         // Concatenate the properties into a single string representation
-        string dataToHash = $"{QsoDate}:{Call}:{Name}:{Mode}";
+        string dataToHash = $"{QsoDate}:{Call}:{Freq}:{Mode}";
 
         //Append the dictionary data in a consistent order
         foreach (var entry in QsoDetails.OrderBy(entry => entry.Name))
