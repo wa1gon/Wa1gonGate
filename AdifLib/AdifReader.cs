@@ -52,13 +52,10 @@ namespace AdifLib
                         qso.RstSent = rstSent;
 
                     if (record.TryGetValue("RST_RCVD", out string? rstRcvd))
-                        qso.QSLRcvd = rstRcvd;
+                        qso.RstRcvd = rstRcvd;
 
                     if (record.TryGetValue("FREQ", out string? freq))
-                        qso.Freq = Decimal.Parse(freq);
-
-                    if (record.TryGetValue("FREQ_RX", out string? freqrx))
-                        qso.FreqRx = Decimal.Parse(freqrx);
+                        qso.Freq = Decimal.Parse(freq);;
 
                     if (record.TryGetValue("STATE", out string? state))
                         qso.State = state;
@@ -79,11 +76,8 @@ namespace AdifLib
                             string.Equals(field.Key, "QSL_sent", StringComparison.OrdinalIgnoreCase) ||
                             string.Equals(field.Key, "rst_rcvd", StringComparison.OrdinalIgnoreCase) ||
                             string.Equals(field.Key, "freq", StringComparison.OrdinalIgnoreCase) ||
-                            string.Equals(field.Key, "freq_rx", StringComparison.OrdinalIgnoreCase) ||
                             string.Equals(field.Key, "State", StringComparison.OrdinalIgnoreCase) ||
                             string.Equals(field.Key, "county", StringComparison.OrdinalIgnoreCase) ||
-
-
                             string.Equals(field.Key, "MODE", StringComparison.OrdinalIgnoreCase))
                         {
                             continue;
@@ -198,13 +192,13 @@ namespace AdifLib
 
                                                 currentQso.RstRcvd = value;
 
-                                            else if (tag.Equals("QSL_Sent", StringComparison.OrdinalIgnoreCase))
+                                            //else if (tag.Equals("QSL_Sent", StringComparison.OrdinalIgnoreCase))
 
-                                                currentQso.QSLSent = value;
+                                            //    currentQso.QSLSent = value;
 
-                                            else if (tag.Equals("QSL_Rcvd", StringComparison.OrdinalIgnoreCase))
+                                            //else if (tag.Equals("QSL_Rcvd", StringComparison.OrdinalIgnoreCase))
 
-                                                currentQso.QSLRcvd = value;
+                                            //    currentQso.QSLRcvd = value;
 
                                             else if (tag.Equals("Freq", StringComparison.OrdinalIgnoreCase))
 
@@ -315,15 +309,3 @@ namespace AdifLib
         }
     }
 }
-
-
-
-
-
-//////////////////////////
-
-
-
-
-
-

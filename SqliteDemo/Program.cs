@@ -37,6 +37,7 @@ void AddQso()
         {
             if (qso.Id.IsNullOrEmpty())
                 qso.Id = Guid.NewGuid().ToString();
+                qso.LastUpdate = DateTime.Now;
             context.Add(qso);
         }
         context.SaveChanges();

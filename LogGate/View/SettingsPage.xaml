@@ -195,12 +195,12 @@
                                                   WidthRequest="300">
 
 
-                                <sfInputs:SfComboBox ClearButtonIconColor="Red"
+                                <sfInputs:SfComboBox Margin="-61,0,0,0"
+                                                     ClearButtonIconColor="Red"
                                                      DisplayMemberPath="Name"
                                                      DropDownIconColor="Green"
                                                      HeightRequest="36"
                                                      IsEditable="False"
-                                                     Margin="-61,0,0,0"
                                                      ItemsSource="{Binding DbOptionType}"
                                                      Placeholder="Select Database type"
                                                      PlaceholderColor="DarkGray"
